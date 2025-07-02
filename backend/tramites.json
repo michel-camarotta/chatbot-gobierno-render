@@ -1,0 +1,12 @@
+{
+  "habilitacion_comercial": {
+    "descripcion": "Permite a un local comercial operar de forma legal.",
+    "requisitos": ["Formulario completo", "Plano firmado por técnico", "Carné de salud vigente"],
+    "pasos": ["Ingresar al sistema de habilitación", "Subir la documentación", "Esperar la validación técnica"]
+  },
+  "cedula_catastral": {
+    "descripcion": "Documento que identifica un bien inmueble.",
+    "requisitos": ["Cédula del propietario", "Recibo de contribución inmobiliaria"],
+    "pasos": ["Solicitar cita online", "Presentarse con la documentación"]
+  }
+}
