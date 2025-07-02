@@ -1,178 +1,45 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Asistente de Trámites</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IM Canelones - Simulación</title>
+  <link rel="stylesheet" href="chatbot.css" />
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
       margin: 0;
+      font-family: sans-serif;
     }
     header {
-      background-color: #3c8dbc;
+      background-color: #004d40;
       color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    main {
+      padding: 2rem;
+    }
+    footer {
+      background: #f1f1f1;
       padding: 1rem;
       text-align: center;
-      font-size: 1.5rem;
-    }
-    #chat {
-      flex-grow: 1;
-      padding: 1rem;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-    }
-    .message {
-      display: flex;
-      align-items: flex-start;
-      margin: 0.5rem 0;
-      max-width: 80%;
-    }
-    .bubble {
-      padding: 0.8rem;
-      border-radius: 10px;
-      position: relative;
-      white-space: pre-wrap;
-    }
-    .user {
-      align-self: flex-end;
-      flex-direction: row-reverse;
-    }
-    .user .bubble {
-      background-color: #d4f1f9;
-      margin-left: 0.5rem;
-    }
-    .bot {
-      align-self: flex-start;
-    }
-    .bot .bubble {
-      background-color: #ffffff;
-      border: 1px solid #ccc;
-      margin-right: 0.5rem;
-    }
-    .avatar {
-      width: 32px;
-      height: 32px;
-    }
-    #input-area {
-      display: flex;
-      padding: 1rem;
-      background: #fff;
-      border-top: 1px solid #ccc;
-    }
-    #question {
-      flex-grow: 1;
-      padding: 0.5rem;
-      font-size: 1rem;
-    }
-    #send {
-      padding: 0.5rem 1rem;
-      background-color: #3c8dbc;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    #send:hover {
-      background-color: #367fa9;
-    }
-    .loader {
-      border: 4px solid #f3f3f3;
-      border-top: 4px solid #3c8dbc;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      animation: spin 1s linear infinite;
-      margin-left: 10px;
-      margin-top: 4px;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
-  <header>🤖 Asistente de Trámites</header>
-  <div id="chat"></div>
-  <div id="input-area">
-    <input id="question" type="text" placeholder="Escribí tu pregunta..." />
-    <button id="send" onclick="sendMessage()">Enviar</button>
-  </div>
+  <header>
+    <h1>Intendencia de Canelones</h1>
+    <p>Gobierno de cercanía</p>
+  </header>
+  <main>
+    <p>Bienvenido a la simulación del sitio web de la Intendencia de Canelones. Acá podrás ver el chatbot funcionando como widget.</p>
+  </main>
+  <footer>
+    © 2025 IM Canelones
+  </footer>
 
-  <script>
-    function createMessage(text, sender, avatar) {
-      const msgContainer = document.createElement('div');
-      msgContainer.className = 'message ' + sender;
-
-      const img = document.createElement('img');
-      img.className = 'avatar';
-      img.src = avatar;
-
-      const bubble = document.createElement('div');
-      bubble.className = 'bubble';
-      bubble.textContent = text;
-
-      msgContainer.appendChild(img);
-      msgContainer.appendChild(bubble);
-      return msgContainer;
-    }
-
-    function createLoaderBubble() {
-      const msgContainer = document.createElement('div');
-      msgContainer.className = 'message bot';
-
-      const img = document.createElement('img');
-      img.className = 'avatar';
-      img.src = 'https://cdn-icons-png.flaticon.com/512/4712/4712027.png';
-
-      const loader = document.createElement('div');
-      loader.className = 'loader';
-
-      msgContainer.appendChild(img);
-      msgContainer.appendChild(loader);
-      return msgContainer;
-    }
-
-    async function sendMessage() {
-      const input = document.getElementById('question');
-      const chat = document.getElementById('chat');
-      const message = input.value.trim();
-      if (!message) return;
-
-      const userMsg = createMessage(message, 'user', 'https://cdn-icons-png.flaticon.com/512/847/847969.png');
-      chat.appendChild(userMsg);
-      input.value = '';
-      chat.scrollTop = chat.scrollHeight;
-
-      const loader = createLoaderBubble();
-      chat.appendChild(loader);
-      chat.scrollTop = chat.scrollHeight;
-
-      try {
-        const res = await fetch('/ask', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message })
-        });
-        const data = await res.json();
-        chat.removeChild(loader);
-        const botMsg = createMessage(data.reply || '[Error en la respuesta]', 'bot', 'https://cdn-icons-png.flaticon.com/512/4712/4712027.png');
-        chat.appendChild(botMsg);
-        chat.scrollTop = chat.scrollHeight;
-      } catch (err) {
-        chat.removeChild(loader);
-        const errorMsg = createMessage('[Error al conectar con el servidor]', 'bot', 'https://cdn-icons-png.flaticon.com/512/4712/4712027.png');
-        chat.appendChild(errorMsg);
-      }
-    }
-
-    document.getElementById('question').addEventListener('keydown', function (e) {
-      if (e.key === 'Enter') sendMessage();
-    });
-  </script>
+  <div id="chatbot-container"></div>
+  <script src="chatbot.js"></script>
 </body>
 </html>
