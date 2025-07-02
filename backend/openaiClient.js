@@ -11,7 +11,9 @@ async function askChatGPT(prompt) {
     messages: [{ role: 'user', content: prompt }]
   });
 
-  return completion.choices[0].message.content;
+  console.log(JSON.stringify(completion, null, 2)); // 🐞 Log completo
+
+  return completion.choices?.[0]?.message?.content || '[Error: respuesta vacía o inesperada]';
 }
 
 module.exports = { askChatGPT };
