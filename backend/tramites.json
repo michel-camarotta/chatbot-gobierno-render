@@ -8,5 +8,42 @@
     "descripcion": "Documento que identifica un bien inmueble.",
     "requisitos": ["Cédula del propietario", "Recibo de contribución inmobiliaria"],
     "pasos": ["Solicitar cita online", "Presentarse con la documentación"]
+  },
+  "habilitacion_tipo_b_canelones": {
+    "descripcion": "Trámite para obtener la habilitación de funcionamiento para locales comerciales, industriales o de servicios de tipo B, ubicados en el departamento de Canelones.",
+    "departamento": "Canelones",
+    "categoria": "Habilitaciones",
+    "tipo": "Presencial",
+    "requisitos": [
+      "Contar con local físico en el departamento de Canelones.",
+      "Que el local cumpla con las condiciones higiénicas, edilicias y de seguridad exigidas.",
+      "Disponer de la documentación correspondiente al rubro declarado."
+    ],
+    "documentacion_requerida": [
+      "Formulario de solicitud completo (Formulario 1002).",
+      "Copia de cédula de identidad del titular o representante.",
+      "Constancia de domicilio del local (UTE, OSE, ANTEL).",
+      "Contrato de arrendamiento o título de propiedad del inmueble.",
+      "Plano del local visado por técnico competente.",
+      "Certificado de Bomberos si corresponde.",
+      "Habilitación del MSP o certificado de Manipulación de Alimentos si aplica.",
+      "Otros documentos específicos según el rubro."
+    ],
+    "costo": "Según el tipo de actividad. Consultar en la oficina correspondiente.",
+    "donde_y_como_se_realiza": {
+      "modalidad": "Presencial",
+      "lugar": "Oficina de Habilitaciones de la Intendencia de Canelones",
+      "direccion": "Av. Tomás Berreta 370, Canelones",
+      "horario": "Lunes a Viernes de 09:00 a 15:00",
+      "contacto": "Tel: 1828 int. 2300 / Email: habilitaciones@imcanelones.gub.uy"
+    },
+    "plazo_estimado": "Varía según el rubro y documentación presentada.",
+    "enlace_oficial": "https://www.imcanelones.gub.uy/servicios/trámites-y-servicios/habilitacion-funcionamiento-tipo-b-canelones",
+    "observaciones": [
+      "La habilitación es obligatoria para comenzar a funcionar legalmente.",
+      "El trámite puede ser iniciado por un gestor autorizado.",
+      "Algunos rubros requieren informes técnicos adicionales.",
+      "Se recomienda agendarse previamente para evitar demoras."
+    ]
   }
 }
