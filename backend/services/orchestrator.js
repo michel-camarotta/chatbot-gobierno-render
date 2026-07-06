@@ -71,29 +71,42 @@ function createOrchestrator(bot, { provider, logger, topK = 4, maxAgents = 3 } =
         const hits = rag.search(query, { colecciones: agente.colecciones });
         const retrievalScore = hits.reduce((sum, h) => sum + h.score, 0);
 
-        return { agente, hits, score: keywordScore * 3 + retrievalScore };
+        return { agente, hits, keywordScore, score: keywordScore * 3 + retrievalScore };
       })
       .filter((entry) => entry.score > 0 && entry.hits.length > 0)
       .sort((a, b) => b.score - a.score);
   }
 
   function selectChunks(ranked) {
-    // Agentes cuyo puntaje esté dentro del 50 % del mejor participan.
+    // Participan los agentes dentro del 50 % del mejor puntaje, MÁS cualquier
+    // agente con coincidencia explícita de sus palabras clave (señal de intención,
+    // p. ej. "aviso"/"sospecha" para protocolos), aunque su puntaje total quede
+    // por debajo porque un documento de otro agente domine por texto. Así una
+    // consulta mixta como "¿a quién aviso si sospecho aftosa?" no pierde el agente
+    // de protocolos. Acotado a maxAgents.
     const best = ranked[0].score;
-    const selected = ranked.filter((r) => r.score >= best * 0.5).slice(0, maxAgents);
+    const selected = ranked
+      .filter((r) => r.score >= best * 0.5 || r.keywordScore >= 1)
+      .slice(0, maxAgents);
 
+    // Garantiza el mejor fragmento de cada agente seleccionado (para que su
+    // documento aparezca en las fuentes aunque otro agente domine por texto) y
+    // rellena el resto de cupos por score hasta topK.
     const seen = new Set();
-    const chunks = [];
+    const guaranteed = [];
+    const rest = [];
     for (const { hits } of selected) {
-      for (const hit of hits) {
+      hits.forEach((hit, i) => {
         const key = `${hit.chunk.docId}::${hit.chunk.seccion}`;
-        if (seen.has(key)) continue;
+        if (seen.has(key)) return;
         seen.add(key);
-        chunks.push(hit);
-      }
+        (i === 0 ? guaranteed : rest).push(hit);
+      });
     }
+    rest.sort((a, b) => b.score - a.score);
+    const chunks = [...guaranteed, ...rest].slice(0, Math.max(topK, guaranteed.length));
     chunks.sort((a, b) => b.score - a.score);
-    return { selected, chunks: chunks.slice(0, topK) };
+    return { selected, chunks };
   }
 
   async function handleChat({ message, history = [] }) {

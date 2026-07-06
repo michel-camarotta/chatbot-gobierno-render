@@ -2,9 +2,27 @@
 
 const { test, describe, before, after } = require('node:test');
 const assert = require('node:assert/strict');
-const { startApp, postJson } = require('./helpers');
+const { startApp, postJson, bots } = require('./helpers');
+const { createApp } = require('../backend/app');
+const { loadConfig } = require('../backend/config');
+const { createLogger } = require('../backend/logger');
 
 // RF-08: plataforma multi-bot por API.
+
+describe('bot por defecto (RF-08)', () => {
+  function appWith(defaultBot) {
+    const config = { ...loadConfig({}), logLevel: 'silent', defaultBot };
+    return () => createApp({ config, logger: createLogger(config), provider: null, bots });
+  }
+
+  test('el arranque falla si DEFAULT_BOT no coincide con ningún bot', () => {
+    assert.throws(appWith('no-existe'), /DEFAULT_BOT/);
+  });
+
+  test('el arranque funciona con un DEFAULT_BOT válido', () => {
+    assert.doesNotThrow(appWith('mgap-ganado'));
+  });
+});
 
 describe('API multi-bot (RF-08)', () => {
   let app;

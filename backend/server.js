@@ -28,7 +28,13 @@ function main() {
     process.exit(1);
   }
 
-  const app = createApp({ config, logger, bots });
+  let app;
+  try {
+    app = createApp({ config, logger, bots });
+  } catch (err) {
+    logger.fatal({ err: err.message }, 'no se pudo inicializar la aplicación');
+    process.exit(1);
+  }
   const totalDocs = bots.reduce((sum, b) => sum + b.documents.length, 0);
   const server = app.listen(config.port, () => {
     logger.info(

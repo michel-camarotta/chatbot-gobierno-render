@@ -12,13 +12,19 @@ const logger = { warn() {}, info() {}, debug() {} };
 describe('orquestador (RF-09, RF-11)', () => {
   const ganado = getBot('mgap-ganado');
 
-  test('rutea a los agentes pertinentes y los reporta', async () => {
+  test('en consulta mixta conserva el agente de intención además del que domina por texto', async () => {
+    // "¿a quién aviso...?" mezcla enfermedad (fiebre aftosa) e intención de aviso.
+    // El documento de enfermedad domina por texto, pero el agente de protocolos
+    // debe entrar igual y su documento debe aparecer en las fuentes.
     const orch = createOrchestrator(ganado, { provider: null, logger });
     const res = await orch.handleChat({ message: '¿a quién aviso si sospecho fiebre aftosa?' });
     const ids = res.agentes.map((a) => a.id);
-    // La consulta es sobre aviso ante una enfermedad: participan protocolos y/o enfermedades.
-    assert.ok(ids.includes('protocolos') || ids.includes('enfermedades'));
-    assert.ok(res.sources.length > 0);
+    assert.ok(ids.includes('enfermedades'), 'debe incluir enfermedades');
+    assert.ok(ids.includes('protocolos'), 'debe incluir protocolos');
+    assert.ok(
+      res.sources.some((s) => s.id === 'denuncia-obligatoria'),
+      'el documento de protocolo debe citarse como fuente'
+    );
   });
 
   test('una consulta de trazabilidad activa el agente de normativa', async () => {

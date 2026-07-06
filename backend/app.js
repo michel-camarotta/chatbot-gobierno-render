@@ -27,7 +27,16 @@ function createApp(options = {}) {
   const provider = options.provider !== undefined ? options.provider : createProvider(config, logger);
 
   const registry = createBotRegistry(bots, { provider, logger, topK: config.retrievalTopK });
-  const defaultBotId = registry.has(config.defaultBot) ? config.defaultBot : bots[0].id;
+  // Un DEFAULT_BOT que no existe es un error de configuración: fallar el arranque
+  // en vez de servir en silencio el asistente equivocado.
+  if (!registry.has(config.defaultBot)) {
+    throw new Error(
+      `Configuración inválida: DEFAULT_BOT="${config.defaultBot}" no coincide con ningún bot cargado (${bots
+        .map((b) => b.id)
+        .join(', ')}).`
+    );
+  }
+  const defaultBotId = config.defaultBot;
 
   const app = express();
   app.disable('x-powered-by');
