@@ -1,0 +1,10 @@
+node_modules
+.git
+.env
+*.log
+test
+specs
+.github
+scripts
+README.md
+CHANGELOG.md

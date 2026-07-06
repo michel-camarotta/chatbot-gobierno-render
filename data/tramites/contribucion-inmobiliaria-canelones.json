@@ -1,0 +1,44 @@
+{
+  "id": "contribucion-inmobiliaria-canelones",
+  "nombre": "Contribución inmobiliaria (Canelones) — pago y convenios",
+  "descripcion": "Pago del tributo departamental que grava los inmuebles ubicados en Canelones, consulta de deuda y suscripción de convenios de facilidades de pago.",
+  "organismo": "Intendencia de Canelones",
+  "departamento": "Canelones",
+  "categoria": "Tributos departamentales",
+  "modalidad": "Mixto",
+  "palabrasClave": [
+    "contribucion",
+    "contribucion inmobiliaria",
+    "impuesto",
+    "tributo",
+    "deuda",
+    "convenio",
+    "pagar contribucion",
+    "padron"
+  ],
+  "requisitos": [
+    "Conocer el número de padrón del inmueble.",
+    "Para convenios: acreditar titularidad o interés legítimo sobre el inmueble."
+  ],
+  "documentacion": [
+    "Cédula de identidad.",
+    "Número de padrón o recibo anterior de contribución."
+  ],
+  "pasos": [
+    "Consultar la deuda en línea con el número de padrón.",
+    "Elegir pago contado o convenio de facilidades.",
+    "Abonar en línea, por redes de cobranza o en las oficinas de la Intendencia."
+  ],
+  "costo": "Según aforo del inmueble. Descuentos por buen pagador y pago anual anticipado.",
+  "lugar": {
+    "nombre": "Dirección General de Recursos Financieros, Intendencia de Canelones y municipios",
+    "direccion": "Av. Tomás Berreta 370, Canelones",
+    "horario": "Lunes a viernes de 09:00 a 15:00",
+    "contacto": "Tel: 1828"
+  },
+  "plazoEstimado": "Pago y convenios en el momento.",
+  "enlaceOficial": "https://www.imcanelones.gub.uy/tramites/contribucion-inmobiliaria",
+  "observaciones": [
+    "Los vencimientos se publican anualmente en el sitio de la Intendencia."
+  ]
+}

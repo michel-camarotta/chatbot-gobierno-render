@@ -1,14 +1,26 @@
 {
-  "name": "chatbot-gobierno-mvp",
+  "name": "asistente-ciudadano",
   "version": "1.0.0",
-  "main": "backend/index.js",
+  "description": "Asistente conversacional de trámites públicos para organismos del Estado uruguayo",
+  "main": "backend/server.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "start": "node backend/index.js"
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js",
+    "test": "node --test",
+    "validate:catalog": "node scripts/validate-catalog.js"
   },
   "dependencies": {
+    "ajv": "^8.17.1",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "openai": "^4.0.0"
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "openai": "^4.77.0",
+    "pino": "^9.6.0"
   }
 }
