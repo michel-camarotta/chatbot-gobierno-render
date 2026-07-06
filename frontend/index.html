@@ -25,9 +25,24 @@
       <em>"¿Cómo renuevo la cédula?"</em> o <em>"¿Dónde pago la contribución inmobiliaria?"</em>.
     </p>
 
+    <h2>Una plataforma, muchos asistentes</h2>
+    <p>
+      El mismo servicio puede alojar un asistente por organismo o dominio. Cada uno
+      tiene detrás un orquestador con agentes especialistas y su propia base de
+      conocimiento. Probá otro ejemplo real:
+    </p>
+    <p class="hint">
+      <a href="ganado.html">→ Asistente de Sanidad Animal (MGAP)</a> — enfermedades del
+      ganado, protocolos de aviso, controles y trazabilidad.
+    </p>
+
     <h2>Integración en su sitio</h2>
     <p>El widget se integra agregando una única línea antes de cerrar <code>&lt;/body&gt;</code>:</p>
     <p><code>&lt;script src="https://SU-SERVICIO/widget.js" defer&gt;&lt;/script&gt;</code></p>
+    <p>
+      Para elegir un asistente específico se agrega <code>data-bot-id</code>:<br />
+      <code>&lt;script src="https://SU-SERVICIO/widget.js" data-bot-id="mgap-ganado" defer&gt;&lt;/script&gt;</code>
+    </p>
     <p>
       La API también puede consumirse directamente; la documentación está en
       <code>specs/openapi.yaml</code> del repositorio.

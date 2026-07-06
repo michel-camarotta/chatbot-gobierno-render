@@ -3,6 +3,12 @@
 Cada requerimiento tiene criterios de aceptación verificables. La matriz de
 trazabilidad requerimiento → prueba está en [06-plan-de-pruebas.md](06-plan-de-pruebas.md).
 
+> Estos requerimientos base se sirven dentro de la **plataforma multi-bot** descrita en
+> [07-plataforma-multibot-agentes.md](07-plataforma-multibot-agentes.md) (RF-08..11). El
+> endpoint canónico de chat es `POST /api/v1/bots/:botId/chat`; `POST /api/v1/chat` es un
+> atajo al bot por defecto que conserva el contrato de RF-01. La "base de conocimiento"
+> de cada bot cumple el rol que antes tenía el catálogo único de trámites.
+
 ## Requerimientos funcionales
 
 ### RF-01 — Consulta conversacional
@@ -31,18 +37,19 @@ Si no hay proveedor de IA configurado, o el proveedor falla o excede el timeout,
 sistema responde igualmente con información determinística del catálogo.
 
 **Criterios de aceptación**
-- Sin `OPENAI_API_KEY`, `POST /api/v1/chat` responde `200` con `mode: "catalog"` y una ficha legible del trámite más relevante.
+- Sin `OPENAI_API_KEY`, `POST /api/v1/chat` responde `200` con `mode: "catalog"` y una respuesta extractiva legible del documento más relevante.
 - Ante error del proveedor, se degrada a `mode: "catalog"` en la misma solicitud (sin error 5xx para el ciudadano).
 - Con proveedor operativo, `mode` es `"ai"`.
 
-### RF-04 — Catálogo de trámites consultable
-El sistema expone el catálogo en `GET /api/v1/tramites` (listado resumido con filtro
-de texto opcional `?q=`) y `GET /api/v1/tramites/:id` (ficha completa).
+### RF-04 — Base de conocimiento consultable
+El sistema expone la base de conocimiento de cada bot en
+`GET /api/v1/bots/:botId/documents` (listado resumido con filtro de texto opcional
+`?q=`) y `GET /api/v1/bots/:botId/documents/:docId` (documento completo).
 
 **Criterios de aceptación**
-- El listado devuelve `id`, `nombre`, `descripcion`, `categoria`, `modalidad` de cada trámite.
-- `:id` inexistente responde `404` con formato de error estándar.
-- El catálogo se valida contra su JSON Schema al arrancar el servicio; un catálogo inválido impide el arranque con un error descriptivo.
+- El listado devuelve `id`, `titulo`, `coleccion`, `resumen`, `etiquetas` de cada documento.
+- `:botId` o `:docId` inexistente responde `404` con formato de error estándar.
+- Cada documento se valida contra su JSON Schema al arrancar el servicio; un documento o `bot.json` inválido impide el arranque con un error descriptivo (ver RF-08).
 
 ### RF-05 — Feedback ciudadano
 `POST /api/v1/feedback` registra si una respuesta fue útil.

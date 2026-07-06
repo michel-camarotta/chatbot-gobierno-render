@@ -1,0 +1,32 @@
+{
+  "id": "carbunco-bacteridiano",
+  "titulo": "Carbunco bacteridiano (ántrax)",
+  "coleccion": "enfermedades",
+  "organismo": "MGAP — DGSG",
+  "etiquetas": [
+    "carbunco", "carbunclo", "antrax", "bacillus anthracis", "muerte subita",
+    "zoonosis", "no abrir cadaver", "sangre oscura", "denuncia obligatoria", "vacuna"
+  ],
+  "resumen": "Enfermedad bacteriana grave (Bacillus anthracis) que causa muerte súbita en bovinos, ovinos y otras especies. Es una zoonosis peligrosa. Es de denuncia obligatoria y ante la sospecha NO se debe abrir ni manipular el cadáver.",
+  "secciones": [
+    {
+      "titulo": "Qué es y cómo se transmite",
+      "contenido": "Causada por la bacteria Bacillus anthracis, que forma esporas muy resistentes que persisten años en el suelo. Los animales se infectan al pastorear en campos contaminados, sobre todo tras movimientos de tierra, inundaciones o sequías que exponen esporas. Los brotes suelen asociarse a \"campos malditos\" con antecedentes."
+    },
+    {
+      "titulo": "Signos clínicos",
+      "contenido": "La forma más común es la muerte súbita, a veces sin signos previos. Cuando se observan, incluyen fiebre alta, temblores, dificultad respiratoria y salida de sangre oscura y no coagulada por las aberturas naturales (nariz, boca, ano) del animal muerto. El cadáver se descompone e hincha rápidamente."
+    },
+    {
+      "titulo": "Medida crítica: no abrir el cadáver",
+      "contenido": "Ante una muerte súbita sospechosa de carbunco, NO abra, corte ni realice necropsia del cadáver, y no lo mueva. Abrir el cadáver expone las bacterias al aire, forma esporas y contamina el campo de forma prolongada, además de poner en riesgo a las personas. Aísle la zona y espere indicaciones del veterinario oficial."
+    },
+    {
+      "titulo": "Riesgo para las personas y denuncia",
+      "contenido": "Es una zoonosis: las personas pueden contagiarse por contacto con animales o productos infectados (piel, lana, carne), con lesiones cutáneas graves u otras formas. Es de denuncia obligatoria. Ante la sospecha, avise de inmediato al MGAP. La prevención se basa en la vacunación en zonas de riesgo y en la correcta disposición de los cadáveres según indicación oficial."
+    }
+  ],
+  "fuente": "MGAP — División Sanidad Animal (DGSG)",
+  "enlaceOficial": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca",
+  "relacionados": ["denuncia-obligatoria", "sospecha-y-medidas-inmediatas"]
+}

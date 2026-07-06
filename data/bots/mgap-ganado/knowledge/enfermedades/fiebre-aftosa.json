@@ -1,0 +1,32 @@
+{
+  "id": "fiebre-aftosa",
+  "titulo": "Fiebre aftosa",
+  "coleccion": "enfermedades",
+  "organismo": "MGAP — DGSG",
+  "etiquetas": [
+    "fiebre aftosa", "aftosa", "vesicular", "vesiculas", "ampollas", "cojera",
+    "salivacion", "bovino", "ovino", "porcino", "denuncia obligatoria", "libre con vacunacion"
+  ],
+  "resumen": "Enfermedad viral altamente contagiosa de los animales de pezuña hendida (bovinos, ovinos, caprinos, porcinos). Es de denuncia obligatoria e inmediata. Uruguay tiene estatus de país libre de fiebre aftosa con vacunación reconocido por la OMSA.",
+  "secciones": [
+    {
+      "titulo": "Qué es y a qué especies afecta",
+      "contenido": "Es una enfermedad viral muy contagiosa que afecta a animales biungulados (de pezuña hendida): bovinos, ovinos, caprinos, cerdos y algunas especies silvestres. No afecta a los equinos. No es una zoonosis relevante (rara vez afecta al humano), pero su impacto productivo y comercial es enorme por las restricciones a la exportación."
+    },
+    {
+      "titulo": "Signos clínicos",
+      "contenido": "Fiebre, decaimiento y aparición de vesículas (ampollas) que se rompen y dejan úlceras en la boca, lengua, encías, morro, espacios interdigitales de las patas y pezones. Se observa abundante salivación, chasquido de labios, cojera y dificultad para comer. En animales jóvenes puede causar muerte súbita por afectación cardíaca."
+    },
+    {
+      "titulo": "Qué hacer ante una sospecha",
+      "contenido": "La fiebre aftosa es de denuncia OBLIGATORIA e INMEDIATA. Ante cualquier animal con vesículas, salivación o cojera compatible, no mueva los animales, no permita el ingreso ni egreso de animales, personas o vehículos del predio y avise de inmediato a la oficina zonal del MGAP o a la División Sanidad Animal de la DGSG. Ver el documento de protocolo de denuncia obligatoria."
+    },
+    {
+      "titulo": "Prevención y estatus del país",
+      "contenido": "Uruguay es reconocido como país libre de fiebre aftosa con vacunación. La prevención se basa en la vacunación antiaftosa obligatoria de todo el rodeo bovino en los períodos que fija el MGAP, el control de movimientos de animales mediante guías y la vigilancia epidemiológica. Un solo foco puede cerrar mercados de exportación, por eso el aviso temprano es clave."
+    }
+  ],
+  "fuente": "MGAP — División Sanidad Animal (DGSG)",
+  "enlaceOficial": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/politicas-y-gestion/fiebre-aftosa",
+  "relacionados": ["denuncia-obligatoria", "sospecha-y-medidas-inmediatas", "vacunacion-antiaftosa"]
+}

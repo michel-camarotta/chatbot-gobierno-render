@@ -1,0 +1,32 @@
+{
+  "id": "guia-de-transito",
+  "titulo": "Guía de propiedad y tránsito de ganado",
+  "coleccion": "normativa",
+  "organismo": "MGAP — DGSG / SNIG",
+  "etiquetas": [
+    "guia", "guia de transito", "guia de propiedad", "mover animales", "traslado",
+    "movimiento de ganado", "documento de traslado", "requisito sanitario", "snig"
+  ],
+  "resumen": "Para trasladar ganado entre establecimientos, a remates o a frigorífico, se requiere una guía de propiedad y tránsito que documente el movimiento. Es el instrumento que respalda la trazabilidad y el control sanitario de los movimientos.",
+  "secciones": [
+    {
+      "titulo": "Qué es y para qué sirve",
+      "contenido": "La guía de propiedad y tránsito es el documento oficial que ampara el movimiento de animales: acredita la propiedad, el origen y el destino, la cantidad y categorías, y respalda que el traslado cumple los requisitos sanitarios. Ningún movimiento de ganado debería realizarse sin su guía correspondiente."
+    },
+    {
+      "titulo": "Requisitos habituales para emitirla",
+      "contenido": "Para obtener la guía, el establecimiento de origen debe estar al día con sus obligaciones: registro de productor vigente, declaración jurada de existencias, vacunaciones obligatorias declaradas (por ejemplo antiaftosa) y, según el caso, requisitos de saneamiento o de zona (garrapata). Los animales bovinos deben estar correctamente identificados (caravanas/SNIG)."
+    },
+    {
+      "titulo": "Cómo se tramita",
+      "contenido": "La guía se gestiona a través del SNIG y las oficinas del MGAP; muchos movimientos se documentan electrónicamente. Su veterinario, el rematador o el gestor pueden ayudar a emitirla. Conserve la guía durante el traslado y en el destino, ya que puede ser requerida en controles en ruta."
+    },
+    {
+      "titulo": "Por qué importa para la sanidad",
+      "contenido": "El control de movimientos mediante guías permite rastrear por dónde pasó un animal, algo esencial ante un foco de enfermedad para delimitar predios en riesgo y actuar rápido. Mover animales sin guía dificulta ese rastreo y es una infracción."
+    }
+  ],
+  "fuente": "MGAP — Sistema Nacional de Información Ganadera (SNIG)",
+  "enlaceOficial": "https://www.snig.gub.uy",
+  "relacionados": ["dicose-snig-trazabilidad", "control-garrapata", "vacunacion-antiaftosa"]
+}

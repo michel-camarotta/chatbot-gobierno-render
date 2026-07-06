@@ -1,0 +1,35 @@
+{
+  "id": "habilitacion-comercial-tipo-b",
+  "titulo": "Habilitación comercial Tipo B (Canelones)",
+  "coleccion": "tramites",
+  "organismo": "Intendencia de Canelones",
+  "etiquetas": [
+    "habilitacion", "comercio", "local comercial", "negocio", "empresa",
+    "abrir un local", "tipo b", "funcionamiento", "habilitar comercio"
+  ],
+  "resumen": "Habilitación de funcionamiento para locales comerciales, industriales o de servicios de tipo B en el departamento de Canelones. Es obligatoria para comenzar a operar legalmente.",
+  "secciones": [
+    {
+      "titulo": "Requisitos",
+      "contenido": "Contar con local físico en el departamento de Canelones; que el local cumpla con las condiciones higiénicas, edilicias y de seguridad exigidas; y disponer de la documentación correspondiente al rubro declarado."
+    },
+    {
+      "titulo": "Documentación",
+      "contenido": "Formulario de solicitud completo (Formulario 1002); copia de cédula de identidad del titular o representante; constancia de domicilio del local (UTE, OSE o ANTEL); contrato de arrendamiento o título de propiedad del inmueble; plano del local visado por técnico competente; certificado de Bomberos si corresponde; habilitación del MSP o carné de manipulación de alimentos si aplica; y otros documentos según el rubro."
+    },
+    {
+      "titulo": "Pasos a seguir",
+      "contenido": "1) Reunir la documentación requerida según el rubro. 2) Agendarse en la Oficina de Habilitaciones de la Intendencia de Canelones. 3) Presentar el formulario 1002 con la documentación. 4) Aguardar la inspección técnica del local. 5) Retirar la habilitación una vez aprobada."
+    },
+    {
+      "titulo": "Costo, lugar y plazos",
+      "contenido": "Costo: varía según el tipo de actividad; consultar en la oficina. Lugar: Oficina de Habilitaciones de la Intendencia de Canelones, Av. Tomás Berreta 370, Canelones, de lunes a viernes de 09:00 a 15:00 (tel. 1828 int. 2300, habilitaciones@imcanelones.gub.uy). Plazo: varía según el rubro y la documentación presentada."
+    },
+    {
+      "titulo": "Observaciones",
+      "contenido": "El trámite puede ser iniciado por un gestor autorizado. Algunos rubros requieren informes técnicos adicionales. Se recomienda agendarse previamente para evitar demoras."
+    }
+  ],
+  "fuente": "Intendencia de Canelones — Oficina de Habilitaciones",
+  "enlaceOficial": "https://www.imcanelones.gub.uy/tramites/habilitacion-comercial-tipo-b"
+}

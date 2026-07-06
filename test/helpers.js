@@ -3,18 +3,19 @@
 const { once } = require('events');
 const { loadConfig } = require('../backend/config');
 const { createLogger } = require('../backend/logger');
-const { loadCatalog } = require('../backend/catalog');
+const { loadBots } = require('../backend/bots');
 const { createApp } = require('../backend/app');
 
-// La suite corre sin red ni claves (RNF-06): proveedor nulo (modo catálogo)
+// La suite corre sin red ni claves (RNF-06): proveedor nulo (modo extractivo)
 // o falso inyectado, y servidor en puerto efímero.
 
-const catalog = loadCatalog();
+const bots = loadBots();
+const DEFAULT_BOT = 'canelones-tramites';
 
 async function startApp({ provider = null, config: overrides = {} } = {}) {
   const config = { ...loadConfig({}), logLevel: 'silent', ...overrides };
   const logger = createLogger(config);
-  const app = createApp({ config, logger, provider, catalog });
+  const app = createApp({ config, logger, provider, bots });
 
   const server = app.listen(0, '127.0.0.1');
   await once(server, 'listening');
@@ -64,4 +65,8 @@ function failingProvider() {
   };
 }
 
-module.exports = { startApp, postJson, fakeProvider, failingProvider, catalog };
+function getBot(id) {
+  return bots.find((b) => b.id === id);
+}
+
+module.exports = { startApp, postJson, fakeProvider, failingProvider, bots, getBot, DEFAULT_BOT };

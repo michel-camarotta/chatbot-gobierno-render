@@ -1,0 +1,28 @@
+{
+  "id": "rabia-paresiante",
+  "titulo": "Rabia paresiante (rabia bovina)",
+  "coleccion": "enfermedades",
+  "organismo": "MGAP — DGSG",
+  "etiquetas": [
+    "rabia", "rabia paresiante", "murcielago", "vampiro", "desmodus",
+    "zoonosis", "signos nerviosos", "paralisis", "denuncia obligatoria", "vacuna antirrabica"
+  ],
+  "resumen": "Enfermedad viral mortal del sistema nervioso, transmitida principalmente por la mordedura del murciélago hematófago (vampiro). Afecta al ganado y es una zoonosis grave. Es de denuncia obligatoria.",
+  "secciones": [
+    {
+      "titulo": "Qué es y cómo se transmite",
+      "contenido": "La rabia paresiante es causada por el virus de la rabia y se transmite al ganado principalmente por la mordedura del murciélago hematófago (Desmodus rotundus), que se alimenta de sangre. Es más frecuente en zonas con refugios de murciélagos (cuevas, construcciones abandonadas, montes). Todos los mamíferos son susceptibles."
+    },
+    {
+      "titulo": "Signos clínicos",
+      "contenido": "Predominan los signos nerviosos: cambios de comportamiento, incoordinación, dificultad para tragar, salivación, parálisis progresiva que suele comenzar en el tren posterior, y muerte. A diferencia de la rabia \"furiosa\", en bovinos suele predominar la forma paralítica (paresiante). Pueden verse marcas de mordeduras de murciélago en el lomo o la cruz."
+    },
+    {
+      "titulo": "Riesgo para las personas y prevención",
+      "contenido": "Es una zoonosis mortal. No manipule sin protección animales con signos nerviosos ni murciélagos caídos, y consulte a salud humana ante cualquier mordedura. La prevención en el ganado es la vacunación antirrábica en zonas de riesgo y el control de las poblaciones de murciélagos hematófagos con apoyo oficial. Ante signos nerviosos o muertes con este cuadro, avise al MGAP: es de denuncia obligatoria."
+    }
+  ],
+  "fuente": "MGAP — División Sanidad Animal (DGSG)",
+  "enlaceOficial": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca",
+  "relacionados": ["denuncia-obligatoria"]
+}

@@ -1,5 +1,10 @@
 # 04 — Arquitectura
 
+> Este documento describe el núcleo del servicio. La plataforma es **multi-bot** con
+> orquestador de agentes y RAG: el detalle está en
+> [07-plataforma-multibot-agentes.md](07-plataforma-multibot-agentes.md), que
+> profundiza el flujo de una consulta, el ruteo a agentes y la recuperación.
+
 ## Vista general
 
 ```
@@ -12,12 +17,12 @@
 │ Servicio Node.js (Express)                             │
 │                                                        │
 │  routes/        capa HTTP: validación, rate limit      │
-│  services/      lógica: chat, retrieval, feedback      │
+│  services/      orquestador, RAG, respuesta fundada     │
 │  providers/     proveedor de IA (OpenAI) + fallback    │
-│  catalog/       carga y validación del catálogo        │
+│  bots/          carga y validación de bots + schemas    │
 │  middleware/    requestId, errores, seguridad          │
 │                                                        │
-│  data/tramites/*.json   catálogo (fuente de verdad)    │
+│  data/bots/<botId>/  bot.json + knowledge/ (fuente de verdad) │
 └────────────┬───────────────────────────────────────────┘
              │ HTTPS (opcional, con timeout y degradación)
       ┌──────▼───────┐
@@ -25,19 +30,19 @@
       └──────────────┘
 ```
 
-## Flujo de una consulta (RF-01..03)
+## Flujo de una consulta (RF-01..03, ampliado en RF-09..11)
 
-1. `POST /api/v1/chat` → middleware: request ID, rate limit, validación del body.
-2. `retrieval.search(message)` puntúa los trámites del catálogo (tokens normalizados
-   sin tildes, pesos por campo: nombre > palabras clave > descripción > resto) y
-   devuelve el top-K sobre un umbral mínimo.
-3. Si hay proveedor de IA: se construye un prompt de sistema restringido ("respondé
-   solo con la información de estos trámites; si no alcanza, decilo y derivá a los
-   canales oficiales") + trámites recuperados + historial acotado + mensaje. Timeout
-   configurable.
-4. Si no hay proveedor, falla o expira: `catalogAnswer()` genera una ficha
-   determinística del trámite más relevante (modo `catalog`).
-5. Respuesta con `reply`, `sources` y `mode`; log estructurado con latencia.
+1. `POST /api/v1/bots/:botId/chat` (o el atajo `/api/v1/chat` al bot por defecto) →
+   middleware: request ID, rate limit, validación del body.
+2. El **orquestador** del bot rutea a los agentes especialistas pertinentes; cada uno
+   recupera (RAG) las secciones más relevantes de sus colecciones (tokens normalizados
+   sin tildes, pesos por campo) y se combinan las mejores sobre un umbral mínimo.
+3. Si hay proveedor de IA: se construye un prompt de sistema restringido al CONTEXTO
+   recuperado ("respondé solo con estos fragmentos; si no alcanza, decilo y derivá a
+   los canales oficiales") + fragmentos + historial acotado + mensaje. Timeout configurable.
+4. Si no hay proveedor, falla o expira: `groundedAnswer()` compone una respuesta
+   extractiva citando los fragmentos recuperados (modo `catalog`, sin generación libre).
+5. Respuesta con `reply`, `sources`, `agentes`, `mode` y `bot`; log estructurado con latencia.
 
 ## Decisiones de arquitectura (ADR)
 
@@ -47,18 +52,20 @@ solicitud. Permite escalar horizontalmente sin sesión pegajosa ni base de datos
 minimiza datos personales en el servidor (ver SEG-05). Trade-off: payload algo mayor
 por solicitud (acotado a 20 turnos).
 
-### ADR-02 — Catálogo en archivos JSON validados por schema
-El catálogo vive en `data/tramites/*.json` (un archivo por trámite) validado contra
-`data/schema/tramite.schema.json` al arranque. Editable por personal no desarrollador
-vía pull request, versionado y auditable con git, sin base de datos que operar. Si el
-volumen supera algunos cientos de trámites, migrar a un almacén con índice (ADR
-futuro) sin cambiar el contrato de `catalog/`.
+### ADR-02 — Conocimiento en archivos JSON validados por schema
+La base de conocimiento de cada bot vive en `data/bots/<botId>/knowledge/<coleccion>/*.json`
+(un archivo por documento) validada contra `data/schema/documento.schema.json`, y el
+`bot.json` contra `data/schema/bot.schema.json`, al arranque. Editable por personal no
+desarrollador vía pull request, versionada y auditable con git, sin base de datos que
+operar. Si el volumen supera algunos cientos de documentos por bot, migrar a un almacén
+con índice (ADR futuro) sin cambiar el contrato del loader de `bots/`.
 
 ### ADR-03 — Retrieval léxico, no embeddings (en v1)
-Búsqueda por puntaje de tokens normalizados con sinónimos configurados por trámite.
-Con decenas de trámites es suficiente, determinístico, gratis y sin dependencias
-externas. La interfaz `search(query) → [{tramite, score}]` permite sustituir la
-implementación por embeddings más adelante sin tocar el resto.
+Búsqueda por puntaje de tokens normalizados con sinónimos (etiquetas) configurados por
+documento. Con decenas de documentos por bot es suficiente, determinístico, gratis y
+sin dependencias externas. La interfaz `search(query) → [{chunk, score}]` permite
+sustituir la implementación por embeddings más adelante sin tocar el resto (ver ADR-07
+en la spec 07).
 
 ### ADR-04 — Proveedor de IA detrás de una interfaz con degradación
 `providers/` expone `generateReply({system, messages}) → string`. Implementaciones:
@@ -84,18 +91,21 @@ backend/
   server.js            # bootstrap + graceful shutdown
   app.js               # factory de la app Express (testeable)
   config.js            # carga y validación de variables de entorno
-  routes/              # chat, tramites, feedback, health, legacy
-  services/            # chatService, retrieval, catalogAnswer
+  routes/              # bots, chat, feedback, health, legacy
+  services/            # orchestrator, botRegistry, rag, retrieval, groundedAnswer
   providers/           # openaiProvider, index (selección por config)
-  catalog/             # loader + validación por schema
+  bots/                # loader + validación de bots y documentos por schema
   middleware/          # requestId, errorHandler, notFound
   logger.js
 data/
-  schema/tramite.schema.json
-  tramites/*.json
+  schema/bot.schema.json
+  schema/documento.schema.json
+  bots/<botId>/bot.json
+  bots/<botId>/knowledge/<coleccion>/*.json
 frontend/
-  index.html           # página de demostración
-  widget.js            # widget embebible
+  index.html           # página de demostración (bot por defecto)
+  ganado.html          # demostración del bot mgap-ganado
+  widget.js            # widget embebible (data-bot-id)
   widget.css
 specs/                 # este directorio
 test/                  # pruebas node:test

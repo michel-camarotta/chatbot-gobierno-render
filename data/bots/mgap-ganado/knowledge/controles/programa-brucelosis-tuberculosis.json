@@ -1,0 +1,29 @@
+{
+  "id": "programa-brucelosis-tuberculosis",
+  "titulo": "Programa de control de brucelosis y tuberculosis: saneamiento de predios",
+  "coleccion": "controles",
+  "organismo": "MGAP — DGSG",
+  "etiquetas": [
+    "saneamiento", "predio en saneamiento", "brucelosis", "tuberculosis",
+    "prueba de tuberculina", "serologia", "animal reactivo", "control oficial",
+    "predio libre", "veterinario acreditado"
+  ],
+  "resumen": "Brucelosis y tuberculosis bovina están sujetas a programas oficiales de control y erradicación basados en el diagnóstico, la eliminación de animales positivos y el saneamiento de los establecimientos afectados.",
+  "secciones": [
+    {
+      "titulo": "En qué consiste el saneamiento",
+      "contenido": "Cuando se detecta un predio positivo, se inicia un proceso de saneamiento: se realizan pruebas diagnósticas periódicas a todo el rodeo (serología para brucelosis, prueba de tuberculina para tuberculosis), se identifican y eliminan los animales reactivos, y se controla el ingreso y egreso de animales hasta lograr sucesivos resultados negativos que permitan declarar el predio saneado."
+    },
+    {
+      "titulo": "Rol del veterinario acreditado",
+      "contenido": "Las pruebas oficiales las realiza un veterinario acreditado por el MGAP, que toma las muestras o aplica la tuberculina, interpreta los resultados y reporta al organismo. El productor coordina con este profesional el cronograma de muestreos del saneamiento."
+    },
+    {
+      "titulo": "Prevención del ingreso de la enfermedad",
+      "contenido": "La mejor defensa es evitar introducir animales infectados: exija estado sanitario y pruebas negativas al comprar, mantenga cuarentena de los animales que ingresan, y controle el contacto en límites con predios de estatus desconocido. En brucelosis, el manejo cuidadoso de abortos (con guantes, sin dejar restos accesibles) reduce la difusión."
+    }
+  ],
+  "fuente": "MGAP — Programas de Brucelosis y Tuberculosis (DGSG)",
+  "enlaceOficial": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/politicas-y-gestion/sanidad-animal",
+  "relacionados": ["brucelosis-bovina", "tuberculosis-bovina"]
+}

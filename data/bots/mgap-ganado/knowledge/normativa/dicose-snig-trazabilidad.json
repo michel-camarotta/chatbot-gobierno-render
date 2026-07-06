@@ -1,0 +1,33 @@
+{
+  "id": "dicose-snig-trazabilidad",
+  "titulo": "DICOSE, SNIG y trazabilidad individual del ganado",
+  "coleccion": "normativa",
+  "organismo": "MGAP — DGSG / SNIG",
+  "etiquetas": [
+    "dicose", "snig", "trazabilidad", "caravana", "identificacion individual",
+    "numero de productor", "declaracion jurada anual", "registro de productor",
+    "sistema nacional de informacion ganadera", "existencias"
+  ],
+  "resumen": "Uruguay cuenta con un sistema de registro e identificación del ganado. Todo tenedor de ganado debe estar registrado (DICOSE) y los bovinos se identifican individualmente con caravanas dentro del Sistema Nacional de Información Ganadera (SNIG), base de la trazabilidad que respalda la exportación.",
+  "secciones": [
+    {
+      "titulo": "Registro DICOSE / número de productor",
+      "contenido": "Toda persona o empresa que tenga ganado debe estar inscripta en el registro de tenedores de ganado (conocido por su histórico DICOSE), lo que le asigna un número de productor asociado a su establecimiento. Ese número identifica al predio en todos los trámites sanitarios y de movimientos."
+    },
+    {
+      "titulo": "Declaración jurada anual de existencias",
+      "contenido": "Cada año, los productores deben presentar una declaración jurada de existencias, informando la cantidad y categorías de animales (bovinos, ovinos y otras especies) y datos del establecimiento. Es obligatoria y sirve de base para la planificación sanitaria y estadística del país."
+    },
+    {
+      "titulo": "Trazabilidad individual bovina (caravanas y SNIG)",
+      "contenido": "Los bovinos se identifican individualmente con dos dispositivos (caravanas) y quedan registrados en el SNIG. Cada animal tiene una historia trazable de nacimiento, movimientos y establecimiento. Esta trazabilidad individual es la que permite certificar el origen de la carne uruguaya y es requisito de los principales mercados de exportación."
+    },
+    {
+      "titulo": "Dónde se gestiona",
+      "contenido": "Los registros y declaraciones se gestionan ante el MGAP, en buena parte a través de la plataforma del SNIG y de las oficinas correspondientes. Su veterinario o gestor puede ayudarle con las altas, las caravanas y las declaraciones."
+    }
+  ],
+  "fuente": "MGAP — Sistema Nacional de Información Ganadera (SNIG)",
+  "enlaceOficial": "https://www.snig.gub.uy",
+  "relacionados": ["guia-de-transito"]
+}

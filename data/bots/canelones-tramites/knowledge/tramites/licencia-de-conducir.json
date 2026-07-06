@@ -1,0 +1,35 @@
+{
+  "id": "licencia-de-conducir",
+  "titulo": "Licencia de conducir (Canelones) — obtención y renovación",
+  "coleccion": "tramites",
+  "organismo": "Intendencia de Canelones",
+  "etiquetas": [
+    "licencia", "licencia de conducir", "libreta de conducir", "libreta",
+    "permiso de conducir", "manejar", "renovar libreta", "examen de manejo"
+  ],
+  "resumen": "Permiso para conducir vehículos expedido por la Intendencia de Canelones, válido en todo el país (permiso único nacional de conducir). Incluye primera vez, renovación y ampliación de categoría.",
+  "secciones": [
+    {
+      "titulo": "Requisitos",
+      "contenido": "Ser mayor de 18 años (16 para categoría G1 con autorización); cédula de identidad vigente; carné de salud o certificado de aptitud psicofísica vigente; y, para primera vez, aprobar examen teórico y práctico."
+    },
+    {
+      "titulo": "Documentación",
+      "contenido": "Cédula de identidad vigente; carné de salud vigente o apto psicofísico; licencia anterior en caso de renovación; y comprobante de pago de la tasa."
+    },
+    {
+      "titulo": "Pasos a seguir",
+      "contenido": "1) Agendarse en línea en el sitio de la Intendencia de Canelones. 2) Abonar la tasa correspondiente. 3) Rendir examen teórico y práctico (solo primera vez o ampliación). 4) Concurrir el día agendado para la toma de foto y firma. 5) Retirar la licencia."
+    },
+    {
+      "titulo": "Costo, lugar y plazos",
+      "contenido": "Costo: según categoría y vigencia; consultar tasas vigentes. Lugar: oficinas de Tránsito de la Intendencia de Canelones y municipios habilitados, de lunes a viernes de 09:00 a 15:00 (tel. 1828). Plazo: entrega en el día en la mayoría de los casos."
+    },
+    {
+      "titulo": "Observaciones",
+      "contenido": "La renovación puede realizarse en cualquier intendencia adherida al permiso único. Conducir con la licencia vencida está sujeto a multas."
+    }
+  ],
+  "fuente": "Intendencia de Canelones — Tránsito",
+  "enlaceOficial": "https://www.imcanelones.gub.uy/tramites/licencia-de-conducir"
+}

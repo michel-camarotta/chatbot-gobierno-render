@@ -10,103 +10,111 @@ info:
 servers:
   - url: /api/v1
 paths:
+  /bots:
+    get:
+      summary: Listar los bots de la plataforma
+      operationId: listBots
+      responses:
+        "200":
+          description: Listado de bots
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  bots:
+                    type: array
+                    items: { $ref: "#/components/schemas/BotSummary" }
+  /bots/{botId}:
+    get:
+      summary: Detalle de un bot (agentes y colecciones)
+      operationId: getBot
+      parameters:
+        - { name: botId, in: path, required: true, schema: { type: string } }
+      responses:
+        "200":
+          description: Detalle del bot
+          content:
+            application/json:
+              schema: { type: object }
+        "404": { $ref: "#/components/responses/NotFound" }
+  /bots/{botId}/chat:
+    post:
+      summary: Conversar con un bot
+      operationId: botChat
+      parameters:
+        - { name: botId, in: path, required: true, schema: { type: string } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/ChatRequest" }
+      responses:
+        "200":
+          description: Respuesta del bot
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ChatResponse" }
+        "400": { $ref: "#/components/responses/BadRequest" }
+        "404": { $ref: "#/components/responses/NotFound" }
+        "429": { $ref: "#/components/responses/RateLimited" }
+  /bots/{botId}/documents:
+    get:
+      summary: Listar la base de conocimiento de un bot
+      operationId: listDocuments
+      parameters:
+        - { name: botId, in: path, required: true, schema: { type: string } }
+        - { name: q, in: query, required: false, schema: { type: string }, description: Filtro de texto libre }
+      responses:
+        "200":
+          description: Listado resumido de documentos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  documents:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id: { type: string }
+                        titulo: { type: string }
+                        coleccion: { type: string }
+                        resumen: { type: string }
+                        etiquetas: { type: array, items: { type: string } }
+        "404": { $ref: "#/components/responses/NotFound" }
+  /bots/{botId}/documents/{docId}:
+    get:
+      summary: Documento completo
+      operationId: getDocument
+      parameters:
+        - { name: botId, in: path, required: true, schema: { type: string } }
+        - { name: docId, in: path, required: true, schema: { type: string } }
+      responses:
+        "200":
+          description: Documento
+          content:
+            application/json:
+              schema: { type: object }
+        "404": { $ref: "#/components/responses/NotFound" }
   /chat:
     post:
-      summary: Enviar un mensaje al asistente
+      summary: Enviar un mensaje al bot por defecto (atajo)
       operationId: chat
       requestBody:
         required: true
         content:
           application/json:
-            schema:
-              type: object
-              required: [message]
-              properties:
-                message:
-                  type: string
-                  minLength: 1
-                  maxLength: 1000
-                history:
-                  type: array
-                  maxItems: 20
-                  items:
-                    type: object
-                    required: [role, content]
-                    properties:
-                      role:
-                        type: string
-                        enum: [user, assistant]
-                      content:
-                        type: string
-                        maxLength: 2000
+            schema: { $ref: "#/components/schemas/ChatRequest" }
       responses:
         "200":
           description: Respuesta del asistente
           content:
             application/json:
-              schema:
-                type: object
-                required: [reply, sources, mode]
-                properties:
-                  reply:
-                    type: string
-                  sources:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id: { type: string }
-                        nombre: { type: string }
-                  mode:
-                    type: string
-                    enum: [ai, catalog]
+              schema: { $ref: "#/components/schemas/ChatResponse" }
         "400": { $ref: "#/components/responses/BadRequest" }
         "429": { $ref: "#/components/responses/RateLimited" }
-  /tramites:
-    get:
-      summary: Listar trámites del catálogo
-      operationId: listTramites
-      parameters:
-        - name: q
-          in: query
-          required: false
-          schema: { type: string }
-          description: Filtro de texto libre
-      responses:
-        "200":
-          description: Listado resumido
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  tramites:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id: { type: string }
-                        nombre: { type: string }
-                        descripcion: { type: string }
-                        categoria: { type: string }
-                        modalidad: { type: string }
-  /tramites/{id}:
-    get:
-      summary: Ficha completa de un trámite
-      operationId: getTramite
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema: { type: string }
-      responses:
-        "200":
-          description: Ficha del trámite
-          content:
-            application/json:
-              schema:
-                type: object
-        "404": { $ref: "#/components/responses/NotFound" }
   /feedback:
     post:
       summary: Registrar feedback sobre una respuesta
@@ -175,3 +183,61 @@ components:
           properties:
             code: { type: string }
             message: { type: string }
+    ChatRequest:
+      type: object
+      required: [message]
+      properties:
+        message: { type: string, minLength: 1, maxLength: 1000 }
+        history:
+          type: array
+          maxItems: 20
+          items:
+            type: object
+            required: [role, content]
+            properties:
+              role: { type: string, enum: [user, assistant] }
+              content: { type: string, maxLength: 2000 }
+    ChatResponse:
+      type: object
+      required: [reply, sources, agentes, mode, bot]
+      properties:
+        reply: { type: string }
+        bot: { type: string, description: id del bot que respondió }
+        mode:
+          type: string
+          enum: [ai, catalog]
+          description: "ai = generada por el modelo sobre el contexto recuperado; catalog = extractiva del conocimiento curado (modo degradado)"
+        agentes:
+          type: array
+          description: Agentes especialistas consultados
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              nombre: { type: string }
+        sources:
+          type: array
+          description: Documentos citados como fundamento de la respuesta
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              nombre: { type: string }
+              seccion: { type: string }
+              organismo: { type: string }
+              enlaceOficial: { type: string }
+    BotSummary:
+      type: object
+      properties:
+        id: { type: string }
+        nombre: { type: string }
+        descripcion: { type: string }
+        organismo: { type: string }
+        agentes:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              nombre: { type: string }
+              descripcion: { type: string }

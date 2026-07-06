@@ -1,0 +1,32 @@
+{
+  "id": "control-garrapata",
+  "titulo": "Control obligatorio de la garrapata",
+  "coleccion": "controles",
+  "organismo": "MGAP — DGSG",
+  "etiquetas": [
+    "control de garrapata", "baño garrapaticida", "garrapaticida", "tratamiento",
+    "predio infestado", "notificacion", "resistencia", "zona de control", "prevencion tristeza"
+  ],
+  "resumen": "El control de la garrapata común del bovino es obligatorio y está regido por un programa oficial del MGAP. Busca reducir las pérdidas por parasitismo y prevenir la tristeza parasitaria, controlando además su diseminación entre predios y zonas.",
+  "secciones": [
+    {
+      "titulo": "Obligación de notificar y controlar",
+      "contenido": "La presencia de garrapata en el establecimiento debe notificarse al MGAP, y el productor está obligado a tratar los animales infestados siguiendo las indicaciones oficiales. El objetivo es evitar la diseminación hacia predios y zonas libres o de menor infestación."
+    },
+    {
+      "titulo": "Cómo se controla",
+      "contenido": "El control se basa en tratamientos garrapaticidas (baños de inmersión, aspersión o productos pour-on/inyectables) aplicados en esquemas que interrumpen el ciclo del parásito. El manejo de potreros y el control de los animales que ingresan también son parte del control. El esquema concreto lo define el veterinario según la carga parasitaria y la zona."
+    },
+    {
+      "titulo": "Uso responsable y resistencia",
+      "contenido": "Use los garrapaticidas a la dosis y frecuencia correctas: el subdosaje y el uso indiscriminado favorecen la resistencia de la garrapata a los productos, un problema creciente. Rote principios activos según recomendación técnica y respete los tiempos de espera para carne y leche antes de faenar o remitir."
+    },
+    {
+      "titulo": "Movimientos entre zonas",
+      "contenido": "Al introducir animales desde zonas con garrapata a zonas libres (o viceversa) hay requisitos sanitarios específicos, incluyendo tratamientos previos e inspección. Consulte antes de mover animales para no diseminar la garrapata ni exponer animales susceptibles a la tristeza parasitaria."
+    }
+  ],
+  "fuente": "MGAP — Programa Nacional de Control de Garrapata (DGSG)",
+  "enlaceOficial": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/politicas-y-gestion/garrapata",
+  "relacionados": ["garrapata-tristeza-parasitaria", "guia-de-transito"]
+}

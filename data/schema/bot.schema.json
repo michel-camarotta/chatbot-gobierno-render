@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "bot.schema.json",
+  "title": "Bot",
+  "description": "Configuración de un chatbot de la plataforma: identidad y agentes especialistas (RF-08, RF-09)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "nombre", "descripcion", "organismo", "agentes"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Debe coincidir con el nombre del directorio del bot"
+    },
+    "nombre": { "type": "string", "minLength": 3, "maxLength": 120 },
+    "descripcion": { "type": "string", "minLength": 10, "maxLength": 600 },
+    "organismo": { "type": "string", "minLength": 3 },
+    "saludo": { "type": "string", "maxLength": 600 },
+    "disclaimer": { "type": "string", "maxLength": 400 },
+    "canalOficial": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "descripcion": { "type": "string" },
+        "telefono": { "type": "string" },
+        "email": { "type": "string" },
+        "enlace": { "type": "string", "pattern": "^https://" }
+      }
+    },
+    "agentes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "nombre", "descripcion", "colecciones", "palabrasClave"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+          "nombre": { "type": "string", "minLength": 3 },
+          "descripcion": { "type": "string", "minLength": 5 },
+          "colecciones": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" }
+          },
+          "palabrasClave": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 2 }
+          },
+          "instrucciones": { "type": "string", "maxLength": 600 }
+        }
+      }
+    }
+  }
+}

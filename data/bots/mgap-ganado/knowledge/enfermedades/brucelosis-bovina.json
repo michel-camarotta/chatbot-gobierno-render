@@ -1,0 +1,33 @@
+{
+  "id": "brucelosis-bovina",
+  "titulo": "Brucelosis bovina",
+  "coleccion": "enfermedades",
+  "organismo": "MGAP — DGSG",
+  "etiquetas": [
+    "brucelosis", "brucella abortus", "aborto", "aborto bovino", "abortando",
+    "abortan", "vaca", "vacas", "perdida de preñez", "zoonosis",
+    "fiebre ondulante", "saneamiento", "denuncia obligatoria", "reproductiva"
+  ],
+  "resumen": "Enfermedad bacteriana (Brucella abortus) que provoca abortos y problemas reproductivos en el ganado bovino. Es una zoonosis: puede transmitirse a las personas. Es de denuncia obligatoria y está sujeta a un programa oficial de control y erradicación.",
+  "secciones": [
+    {
+      "titulo": "Qué es y cómo se transmite",
+      "contenido": "Es causada por la bacteria Brucella abortus. Se transmite principalmente por contacto con fetos abortados, placentas, líquidos y secreciones de animales infectados. Los terneros pueden infectarse por el calostro y la leche. El ingreso de animales infectados sin control sanitario es la principal vía de entrada a un establecimiento."
+    },
+    {
+      "titulo": "Signos clínicos",
+      "contenido": "El signo más característico es el aborto en el último tercio de la gestación, así como retención de placenta, repetición de celos, nacimiento de terneros débiles e infertilidad. En los toros puede causar inflamación testicular (orquitis)."
+    },
+    {
+      "titulo": "Riesgo para las personas (zoonosis)",
+      "contenido": "La brucelosis afecta a las personas que manipulan animales infectados o consumen lácteos sin pasteurizar. En humanos produce fiebre ondulante, sudoración, dolores articulares y fatiga. Use guantes al asistir partos o manipular abortos y no consuma leche cruda."
+    },
+    {
+      "titulo": "Diagnóstico, control y denuncia",
+      "contenido": "El diagnóstico es serológico (análisis de sangre) realizado por veterinario. Es de denuncia obligatoria. Existe un programa oficial de control y erradicación que incluye el saneamiento de predios positivos, la identificación y eliminación de animales reactivos y el control de movimientos. Ante abortos repetidos, consulte a su veterinario y avise al MGAP."
+    }
+  ],
+  "fuente": "MGAP — Programa Nacional de Control de Brucelosis (DGSG)",
+  "enlaceOficial": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/politicas-y-gestion/brucelosis",
+  "relacionados": ["denuncia-obligatoria", "programa-brucelosis-tuberculosis"]
+}
