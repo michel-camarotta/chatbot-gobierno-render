@@ -33,7 +33,7 @@ Incluye dos bots de ejemplo, listos para probar:
   defecto, validación estricta, logs estructurados sin datos personales, healthchecks,
   apagado graceful, API versionada con OpenAPI.
 - ✅ **Spec-driven development**: especificaciones versionadas en [`specs/`](specs/)
-  con trazabilidad requerimiento → prueba (54 pruebas automatizadas).
+  con trazabilidad requerimiento → prueba (58 pruebas automatizadas).
 
 ## Inicio rápido
 
@@ -49,7 +49,7 @@ Abrir http://localhost:3001 — la página de demostración incluye el widget fu
 Sin clave de API el asistente opera en **modo catálogo** (totalmente funcional).
 
 ```bash
-npm test                # suite completa (54 pruebas), sin red ni claves
+npm test                # suite completa (58 pruebas), sin red ni claves
 npm run validate:bots   # valida todos los bots y su base de conocimiento
 npm run dev             # desarrollo con recarga automática
 ```

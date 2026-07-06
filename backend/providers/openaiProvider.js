@@ -3,7 +3,7 @@
 const OpenAI = require('openai');
 
 // Proveedor de IA sobre la API de OpenAI (ADR-04). Timeout y reintentos
-// acotados: si algo falla, chatService degrada a modo catálogo (RF-03).
+// acotados: si algo falla, el orquestador degrada a modo extractivo (RF-03).
 
 function createOpenAiProvider({ apiKey, model, timeoutMs }) {
   const client = new OpenAI({ apiKey, timeout: timeoutMs, maxRetries: 1 });
