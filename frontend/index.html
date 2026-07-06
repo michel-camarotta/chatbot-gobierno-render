@@ -1,45 +1,44 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IM Canelones - Simulación</title>
-  <link rel="stylesheet" href="chatbot.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-    }
-    header {
-      background-color: #004d40;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    main {
-      padding: 2rem;
-    }
-    footer {
-      background: #f1f1f1;
-      padding: 1rem;
-      text-align: center;
-    }
-  </style>
+  <title>Asistente Ciudadano — Demostración</title>
+  <link rel="stylesheet" href="demo.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <h1>Intendencia de Canelones</h1>
-    <p>Gobierno de cercanía</p>
+    <p>Gobierno de cercanía — sitio de demostración</p>
   </header>
+
   <main>
-    <p>Bienvenido a la simulación del sitio web de la Intendencia de Canelones. Acá podrás ver el chatbot funcionando como widget.</p>
+    <h2>Asistente Ciudadano</h2>
+    <p>
+      Esta página simula el sitio web de un organismo público con el
+      <strong>Asistente Ciudadano</strong> integrado como widget (botón flotante,
+      abajo a la derecha).
+    </p>
+    <p class="hint">
+      Probá preguntarle, por ejemplo: <em>"¿Qué necesito para habilitar un comercio?"</em>,
+      <em>"¿Cómo renuevo la cédula?"</em> o <em>"¿Dónde pago la contribución inmobiliaria?"</em>.
+    </p>
+
+    <h2>Integración en su sitio</h2>
+    <p>El widget se integra agregando una única línea antes de cerrar <code>&lt;/body&gt;</code>:</p>
+    <p><code>&lt;script src="https://SU-SERVICIO/widget.js" defer&gt;&lt;/script&gt;</code></p>
+    <p>
+      La API también puede consumirse directamente; la documentación está en
+      <code>specs/openapi.yaml</code> del repositorio.
+    </p>
   </main>
-  <footer>
-    © 2025 IM Canelones
+
+  <footer class="site-footer">
+    Página de demostración del Asistente Ciudadano · Las respuestas del asistente
+    son informativas y no constituyen resolución administrativa.
   </footer>
 
-  <div id="chatbot-container"></div>
-  <script src="chatbot.js"></script>
+  <script src="widget.js" defer></script>
 </body>
 </html>

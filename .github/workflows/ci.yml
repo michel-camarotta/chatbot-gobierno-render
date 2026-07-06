@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: Pruebas y validaciones
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20, 22]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Validar catálogo de trámites
+        run: npm run validate:catalog
+
+      - name: Pruebas (RNF-06)
+        run: npm test
+
+      - name: Auditoría de dependencias (SEG-09)
+        run: npm audit --omit=dev --audit-level=high

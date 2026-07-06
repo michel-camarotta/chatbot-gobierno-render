@@ -1,0 +1,20 @@
+# Despliegue en Render (Infrastructure as Code).
+# El servicio también puede desplegarse con el Dockerfile en cualquier
+# plataforma de contenedores (ver README).
+services:
+  - type: web
+    name: asistente-ciudadano
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: TRUST_PROXY
+        value: "true"
+      - key: OPENAI_API_KEY
+        sync: false # se carga como secreto desde el dashboard
+      - key: OPENAI_MODEL
+        value: gpt-4o-mini
