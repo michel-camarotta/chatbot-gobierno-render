@@ -8,14 +8,13 @@ const rateLimit = require('express-rate-limit');
 
 const { loadConfig } = require('./config');
 const { createLogger } = require('./logger');
-const { loadCatalog } = require('./catalog');
+const { loadBots } = require('./bots');
 const { createProvider } = require('./providers');
-const { createRetrieval } = require('./services/retrieval');
-const { createChatService } = require('./services/chatService');
+const { createBotRegistry } = require('./services/botRegistry');
 const { requestId } = require('./middleware/requestId');
 const { notFoundHandler, errorHandler } = require('./middleware/errors');
+const { createBotsRouter } = require('./routes/bots');
 const { createChatRouter } = require('./routes/chat');
-const { createTramitesRouter } = require('./routes/tramites');
 const { createFeedbackRouter } = require('./routes/feedback');
 const { createHealthRouter } = require('./routes/health');
 const { createLegacyRouter } = require('./routes/legacy');
@@ -24,12 +23,11 @@ const { createLegacyRouter } = require('./routes/legacy');
 function createApp(options = {}) {
   const config = options.config || loadConfig();
   const logger = options.logger || createLogger(config);
-  const catalog = options.catalog || loadCatalog();
-  const provider =
-    options.provider !== undefined ? options.provider : createProvider(config, logger);
+  const bots = options.bots || loadBots();
+  const provider = options.provider !== undefined ? options.provider : createProvider(config, logger);
 
-  const retrieval = createRetrieval(catalog, { topK: config.retrievalTopK });
-  const chatService = createChatService({ retrieval, provider, logger });
+  const registry = createBotRegistry(bots, { provider, logger, topK: config.retrievalTopK });
+  const defaultBotId = registry.has(config.defaultBot) ? config.defaultBot : bots[0].id;
 
   const app = express();
   app.disable('x-powered-by');
@@ -69,10 +67,7 @@ function createApp(options = {}) {
       handler: (req, res) => {
         res.setHeader('Retry-After', Math.ceil(config.rateLimitWindowMs / 1000));
         res.status(429).json({
-          error: {
-            code: 'RATE_LIMITED',
-            message: 'Demasiadas solicitudes. Esperá un momento e intentá nuevamente.',
-          },
+          error: { code: 'RATE_LIMITED', message: 'Demasiadas solicitudes. Esperá un momento e intentá nuevamente.' },
         });
       },
     });
@@ -80,12 +75,19 @@ function createApp(options = {}) {
   const chatLimiter = rateLimited(config.rateLimitChatMax);
   const apiLimiter = rateLimited(config.rateLimitApiMax);
 
-  app.use('/api/v1', createHealthRouter({ isReady: () => catalog.length > 0 }));
-  app.use('/api/v1/chat', chatLimiter, createChatRouter({ chatService }));
-  app.use('/api/v1/tramites', apiLimiter, createTramitesRouter({ catalog }));
+  const isReady = () => bots.length > 0;
+
+  app.use('/api/v1', createHealthRouter({ isReady }));
+  // El chat (de cualquier bot y el atajo por defecto) usa el límite estricto;
+  // la navegación del catálogo usa el límite general.
+  app.use('/api/v1/chat', chatLimiter, createChatRouter({ registry, defaultBotId }));
+  app.use('/api/v1/bots', (req, res, next) => {
+    const isChat = req.method === 'POST' && /\/chat\/?$/.test(req.path);
+    return (isChat ? chatLimiter : apiLimiter)(req, res, next);
+  }, createBotsRouter({ registry }));
   app.use('/api/v1/feedback', apiLimiter, createFeedbackRouter());
   app.use('/ask', chatLimiter);
-  app.use(createLegacyRouter({ chatService }));
+  app.use(createLegacyRouter({ registry, defaultBotId }));
 
   app.use(express.static(path.join(__dirname, '..', 'frontend')));
 

@@ -1,0 +1,33 @@
+{
+  "id": "garrapata-tristeza-parasitaria",
+  "titulo": "Garrapata común y tristeza parasitaria",
+  "coleccion": "enfermedades",
+  "organismo": "MGAP — DGSG",
+  "etiquetas": [
+    "garrapata", "rhipicephalus microplus", "boophilus", "tristeza parasitaria",
+    "babesiosis", "babesia", "anaplasmosis", "anaplasma", "hemoparasitos",
+    "orina roja", "anemia", "denuncia obligatoria", "control de garrapata"
+  ],
+  "resumen": "La garrapata común del bovino (Rhipicephalus (Boophilus) microplus) transmite la tristeza parasitaria, un complejo de enfermedades de la sangre (babesiosis y anaplasmosis) que puede causar mortandad. La presencia de garrapata es de notificación y está sujeta a control oficial obligatorio.",
+  "secciones": [
+    {
+      "titulo": "La garrapata y por qué importa",
+      "contenido": "La garrapata común del bovino parasita al ganado y, además del daño directo (pérdida de sangre, lesiones en el cuero, menor producción), transmite los agentes de la tristeza parasitaria. Uruguay mantiene un programa oficial de control de la garrapata, con zonas y obligaciones definidas por el MGAP."
+    },
+    {
+      "titulo": "Qué es la tristeza parasitaria",
+      "contenido": "Es un complejo causado por hemoparásitos: Babesia bovis y Babesia bigemina (babesiosis) y Anaplasma marginale (anaplasmosis). Los parásitos destruyen los glóbulos rojos y provocan anemia grave. Es una de las principales causas de mortandad de bovinos asociada a la garrapata, especialmente en animales introducidos desde zonas libres a zonas con garrapata."
+    },
+    {
+      "titulo": "Signos clínicos",
+      "contenido": "Fiebre alta, decaimiento, separación del rodeo, anemia (mucosas pálidas) e ictericia (mucosas amarillentas). En la babesiosis es característica la orina de color rojo oscuro (\"orina roja\" o hemoglobinuria). Puede haber signos nerviosos y muerte si no se trata a tiempo."
+    },
+    {
+      "titulo": "Prevención, tratamiento y notificación",
+      "contenido": "La prevención combina el control de la garrapata (baños garrapaticidas y manejo) con cuidados al mover animales entre zonas. El tratamiento con babesicidas/antianaplásmicos es efectivo si es temprano: ante orina roja, anemia o mortandad súbita, consulte de inmediato a su veterinario. La presencia de garrapata debe notificarse al MGAP y su control es obligatorio."
+    }
+  ],
+  "fuente": "MGAP — Programa Nacional de Control de Garrapata (DGSG)",
+  "enlaceOficial": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/politicas-y-gestion/garrapata",
+  "relacionados": ["control-garrapata", "denuncia-obligatoria"]
+}

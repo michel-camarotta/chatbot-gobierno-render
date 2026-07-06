@@ -2,6 +2,43 @@
 
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es/1.1.0/).
 
+## [1.1.0] — 2026-07-06
+
+Convierte el servicio en una **plataforma multi-bot** con orquestador de agentes y RAG.
+
+### Agregado
+- Spec `07-plataforma-multibot-agentes.md`: multi-bot, orquestador, agentes y RAG,
+  con requerimientos RF-08..11 y ADR-07 (recuperación intercambiable).
+- Modelo de datos por bot: `data/bots/<botId>/bot.json` + `knowledge/<coleccion>/*.json`,
+  con schemas `bot.schema.json` y `documento.schema.json`.
+- Orquestador por bot (`orchestrator.js`): rutea la consulta a los agentes
+  especialistas pertinentes y combina sus recuperaciones.
+- RAG por colección (`rag.js`): recuperación léxica sobre las secciones de los
+  documentos; cada respuesta cita sus fuentes (documento y sección).
+- Respuesta extractiva fundada (`groundedAnswer.js`) para el modo sin IA: se compone
+  citando el conocimiento curado, sin generación libre (anti-alucinación por construcción).
+- API multi-bot: `GET /api/v1/bots`, `GET /api/v1/bots/:botId`,
+  `POST /api/v1/bots/:botId/chat`, `GET /api/v1/bots/:botId/documents[/:docId]`.
+- **Bot de ejemplo `mgap-ganado`** (sanidad animal del MGAP) con 4 agentes
+  (enfermedades, protocolos, controles, normativa) y 13 documentos: fiebre aftosa,
+  brucelosis, tuberculosis, garrapata/tristeza parasitaria, carbunco, rabia, denuncia
+  obligatoria, medidas ante sospecha, vacunación antiaftosa, control de garrapata,
+  saneamiento, DICOSE/SNIG/trazabilidad y guía de tránsito.
+- Widget seleccionable por bot con `data-bot-id`; segunda página de demostración
+  (`ganado.html`).
+- Respuesta de chat ampliada: `bot`, `agentes` (consultados) y `sources` con sección
+  y organismo. Nuevos tests de RAG, orquestador, multi-bot y loader de bots (54 en total).
+
+### Cambiado
+- El bot de trámites de Canelones pasó a ser el bot `canelones-tramites` dentro de la
+  plataforma; sigue siendo el bot por defecto (`DEFAULT_BOT`) de `/api/v1/chat` y `/ask`.
+- La base de conocimiento usa el modelo unificado de documentos con secciones.
+
+### Eliminado
+- Endpoints `/api/v1/tramites` y `/api/v1/tramites/:id` (reemplazados por
+  `/api/v1/bots/:botId/documents`). El schema `tramite.schema.json` y `data/tramites/`
+  se migraron a `data/bots/canelones-tramites/`.
+
 ## [1.0.0] — 2026-07-06
 
 Reescritura completa de la PoC a un producto listo para producción, bajo

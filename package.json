@@ -1,7 +1,7 @@
 {
   "name": "asistente-ciudadano",
-  "version": "1.0.0",
-  "description": "Asistente conversacional de trámites públicos para organismos del Estado uruguayo",
+  "version": "1.1.0",
+  "description": "Plataforma multi-bot con agentes y RAG para asistentes conversacionales de organismos del Estado uruguayo",
   "main": "backend/server.js",
   "license": "MIT",
   "engines": {
@@ -11,7 +11,8 @@
     "start": "node backend/server.js",
     "dev": "node --watch backend/server.js",
     "test": "node --test",
-    "validate:catalog": "node scripts/validate-catalog.js"
+    "validate:catalog": "node scripts/validate-catalog.js",
+    "validate:bots": "node scripts/validate-catalog.js"
   },
   "dependencies": {
     "ajv": "^8.17.1",

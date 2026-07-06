@@ -1,0 +1,31 @@
+{
+  "id": "cedula-catastral",
+  "titulo": "Cédula catastral",
+  "coleccion": "tramites",
+  "organismo": "Dirección Nacional de Catastro (MEF)",
+  "etiquetas": [
+    "catastro", "cedula catastral", "inmueble", "padron", "propiedad", "terreno",
+    "valor catastral"
+  ],
+  "resumen": "Documento que identifica un bien inmueble ante la Dirección Nacional de Catastro, con sus características y valores catastrales. Se solicita para compraventas, sucesiones y otros trámites notariales.",
+  "secciones": [
+    {
+      "titulo": "Requisitos y documentación",
+      "contenido": "Conocer el número de padrón y departamento del inmueble; contar con usuario gub.uy (ID Uruguay) para el trámite en línea; y cédula de identidad del solicitante."
+    },
+    {
+      "titulo": "Pasos a seguir",
+      "contenido": "1) Ingresar al portal de la Dirección Nacional de Catastro con usuario gub.uy. 2) Seleccionar el departamento y número de padrón. 3) Abonar la tasa correspondiente en línea si aplica. 4) Descargar la cédula catastral emitida."
+    },
+    {
+      "titulo": "Costo y plazos",
+      "contenido": "Costo: consultar tasas vigentes en el portal de Catastro. Plazo: emisión inmediata para padrones urbanos regularizados."
+    },
+    {
+      "titulo": "Observaciones",
+      "contenido": "Para padrones rurales o con situaciones especiales puede requerirse gestión presencial."
+    }
+  ],
+  "fuente": "Dirección Nacional de Catastro",
+  "enlaceOficial": "https://www.gub.uy/tramites/solicitud-cedula-catastral"
+}

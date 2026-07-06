@@ -6,6 +6,7 @@
  *
  * Configuración opcional por atributos data-*:
  *   data-api-base="https://SERVICIO"   (defecto: origen del propio script)
+ *   data-bot-id="mgap-ganado"          (defecto: bot por defecto del servicio)
  *   data-title="Asistente Ciudadano"
  *
  * Sin dependencias ni recursos de terceros (ADR-06). Todo el contenido se
@@ -17,13 +18,20 @@
   var script = document.currentScript;
   var scriptUrl = new URL(script.src, document.baseURI);
   var apiBase = (script.getAttribute('data-api-base') || scriptUrl.origin).replace(/\/$/, '');
+  var botId = (script.getAttribute('data-bot-id') || '').trim();
   var title = script.getAttribute('data-title') || 'Asistente Ciudadano';
+
+  // Endpoint de chat: bot específico si se configura data-bot-id, o el atajo
+  // al bot por defecto del servicio (RF-08).
+  var chatUrl = botId
+    ? apiBase + '/api/v1/bots/' + encodeURIComponent(botId) + '/chat'
+    : apiBase + '/api/v1/chat';
 
   var HISTORY_MAX = 20;
   // Presupuesto de caracteres del historial enviado: mantiene el cuerpo bien por
   // debajo del límite del servidor aunque haya turnos largos (evita el 413).
   var HISTORY_CHAR_BUDGET = 12000;
-  var STORAGE_KEY = 'ac-conversacion';
+  var STORAGE_KEY = 'ac-conversacion:' + (botId || 'default');
 
   // Recorta el historial a los turnos más recientes que entran en el presupuesto
   // de caracteres, sin superar HISTORY_MAX turnos.
@@ -253,7 +261,7 @@
     addMessage('user', message);
     showTyping();
 
-    fetch(apiBase + '/api/v1/chat', {
+    fetch(chatUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: message, history: boundedHistory() }),
@@ -319,7 +327,7 @@
       greeted = true;
       addMessage(
         'assistant',
-        '¡Hola! Soy el asistente de trámites. Preguntame, por ejemplo: "¿Qué necesito para renovar la cédula?" o "¿Cómo habilito un comercio?".'
+        '¡Hola! ¿En qué te puedo ayudar? Escribí tu consulta y buscaré la información en fuentes oficiales.'
       );
     } else if (!greeted) {
       greeted = true;

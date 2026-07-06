@@ -57,7 +57,8 @@ function loadConfig(env = process.env) {
     openaiModel: env.OPENAI_MODEL || 'gpt-4o-mini',
     openaiTimeoutMs: parseIntStrict(env, 'OPENAI_TIMEOUT_MS', 15000, { min: 1000, max: 120000 }),
 
-    retrievalTopK: parseIntStrict(env, 'RETRIEVAL_TOP_K', 3, { min: 1, max: 10 }),
+    retrievalTopK: parseIntStrict(env, 'RETRIEVAL_TOP_K', 4, { min: 1, max: 12 }),
+    defaultBot: env.DEFAULT_BOT || 'canelones-tramites',
 
     // Límite del cuerpo de la solicitud (SEG-01). El default acomoda el history
     // máximo válido (20 turnos × 2000 caracteres + mensaje + overhead JSON).

@@ -1,0 +1,61 @@
+{
+  "id": "mgap-ganado",
+  "nombre": "Asistente de Sanidad Animal",
+  "descripcion": "Ayuda a productores rurales y veterinarios con información sobre enfermedades del ganado en Uruguay, protocolos de aviso obligatorio, controles sanitarios y normativa. La información proviene de fuentes oficiales del MGAP.",
+  "organismo": "Ministerio de Ganadería, Agricultura y Pesca (MGAP) — Dirección General de Servicios Ganaderos (DGSG)",
+  "saludo": "¡Hola! Soy el asistente de sanidad animal. Puedo ayudarte con enfermedades del ganado, cómo y a quién dar aviso ante una sospecha, campañas de vacunación, control de garrapata y trazabilidad. Por ejemplo: \"¿A quién aviso si sospecho fiebre aftosa?\" o \"¿Cuándo es la vacunación antiaftosa?\".",
+  "disclaimer": "Información orientativa basada en fuentes oficiales del MGAP. No sustituye la consulta con un veterinario ni la comunicación oficial con la DGSG. Ante una sospecha de enfermedad de denuncia obligatoria, avisá de inmediato.",
+  "canalOficial": {
+    "descripcion": "División Sanidad Animal — DGSG (MGAP)",
+    "telefono": "2410 4155 / oficinas zonales del MGAP",
+    "email": "sanidadanimal@mgap.gub.uy",
+    "enlace": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca"
+  },
+  "agentes": [
+    {
+      "id": "enfermedades",
+      "nombre": "Enfermedades del ganado",
+      "descripcion": "Signos clínicos, especies afectadas, transmisión y riesgo de las principales enfermedades del ganado en Uruguay.",
+      "colecciones": ["enfermedades"],
+      "palabrasClave": [
+        "enfermedad", "sintoma", "signos", "aftosa", "fiebre aftosa", "brucelosis",
+        "tuberculosis", "garrapata", "tristeza", "babesiosis", "anaplasmosis",
+        "carbunco", "antrax", "rabia", "aborto", "vesicula", "cojera", "diarrea",
+        "muerte subita", "zoonosis", "vaca", "bovino", "ovino", "ganado", "contagio"
+      ]
+    },
+    {
+      "id": "protocolos",
+      "nombre": "Protocolos de aviso y notificación",
+      "descripcion": "Qué hacer ante una sospecha, a quién y cómo dar aviso, plazos y medidas inmediatas.",
+      "colecciones": ["protocolos"],
+      "palabrasClave": [
+        "aviso", "avisar", "denuncia", "denunciar", "notificar", "notificacion",
+        "sospecha", "foco", "brote", "reportar", "obligatoria", "dgsg", "a quien",
+        "que hago", "emergencia", "cuarentena"
+      ]
+    },
+    {
+      "id": "controles",
+      "nombre": "Controles y campañas sanitarias",
+      "descripcion": "Campañas de vacunación obligatoria, control de garrapata, saneamiento de predios y tratamientos.",
+      "colecciones": ["controles"],
+      "palabrasClave": [
+        "vacunacion", "vacuna", "campaña", "control", "baño", "garrapaticida",
+        "saneamiento", "tratamiento", "calendario", "periodo", "prevencion",
+        "dosis", "cuando vacuno", "programa"
+      ]
+    },
+    {
+      "id": "normativa",
+      "nombre": "Trámites, trazabilidad y normativa",
+      "descripcion": "Registro DICOSE, Sistema Nacional de Información Ganadera (SNIG), guías de tránsito y trazabilidad individual.",
+      "colecciones": ["normativa"],
+      "palabrasClave": [
+        "dicose", "snig", "trazabilidad", "caravana", "guia", "transito",
+        "declaracion jurada", "registro", "tramite", "propiedad", "mover animales",
+        "traslado", "numero de productor"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "canelones-tramites",
+  "nombre": "Asistente Ciudadano",
+  "descripcion": "Ayuda a la ciudadanía a entender cómo realizar trámites públicos: requisitos, documentación, costos, lugares, horarios y plazos.",
+  "organismo": "Intendencia de Canelones",
+  "saludo": "¡Hola! Soy el asistente de trámites. Preguntame, por ejemplo: \"¿Qué necesito para habilitar un comercio?\" o \"¿Cómo renuevo la cédula?\".",
+  "disclaimer": "Asistente automatizado. Sus respuestas son informativas y no constituyen resolución administrativa.",
+  "canalOficial": {
+    "descripcion": "Atención a la ciudadanía de la Intendencia de Canelones",
+    "telefono": "1828",
+    "enlace": "https://www.imcanelones.gub.uy"
+  },
+  "agentes": [
+    {
+      "id": "tramites",
+      "nombre": "Trámites y servicios",
+      "descripcion": "Información sobre trámites: requisitos, documentación, pasos, costos y lugares.",
+      "colecciones": ["tramites"],
+      "palabrasClave": [
+        "tramite", "requisito", "documentacion", "como hago", "donde", "costo",
+        "habilitacion", "comercio", "cedula", "licencia", "libreta", "contribucion",
+        "partida", "carne de salud", "catastral", "renovar", "sacar"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "denuncia-obligatoria",
+  "titulo": "Denuncia obligatoria de enfermedades: cómo y a quién avisar",
+  "coleccion": "protocolos",
+  "organismo": "MGAP — DGSG",
+  "etiquetas": [
+    "denuncia obligatoria", "notificacion", "avisar", "a quien aviso", "como denuncio",
+    "sospecha", "dgsg", "oficina zonal", "veterinario oficial", "plazo", "obligacion"
+  ],
+  "resumen": "Ciertas enfermedades de los animales son de denuncia obligatoria en Uruguay: cualquier persona que las sospeche debe comunicarlo de inmediato al MGAP. Este documento explica a quién avisar, cómo hacerlo y qué información aportar.",
+  "secciones": [
+    {
+      "titulo": "Quién debe denunciar y cuándo",
+      "contenido": "La denuncia es una obligación legal de productores, veterinarios, transportistas, personal de frigoríficos, remates y cualquier persona que tome conocimiento de una sospecha. No hay que esperar la confirmación: ante la SOSPECHA de una enfermedad de denuncia obligatoria hay que avisar de inmediato. La denuncia temprana protege al rodeo propio, al de los vecinos y al estatus sanitario del país."
+    },
+    {
+      "titulo": "A quién y cómo avisar",
+      "contenido": "Comuníquese con la oficina zonal del MGAP más cercana o con la División Sanidad Animal de la Dirección General de Servicios Ganaderos (DGSG). Canales: teléfono de la oficina zonal, correo sanidadanimal@mgap.gub.uy, o a través de su veterinario de libre ejercicio, que puede canalizar la denuncia. En situaciones de emergencia sanitaria, el aviso debe ser lo más rápido posible por la vía disponible."
+    },
+    {
+      "titulo": "Qué información aportar",
+      "contenido": "Al avisar, tenga a mano: datos del establecimiento (número DICOSE y ubicación), datos del propietario o responsable, especie y cantidad de animales afectados y muertos, signos observados y desde cuándo, y movimientos recientes de animales (ingresos o egresos). Cuanta más información, más rápida la respuesta oficial."
+    },
+    {
+      "titulo": "Ejemplos de enfermedades de denuncia obligatoria",
+      "contenido": "Entre otras: fiebre aftosa, brucelosis, tuberculosis bovina, carbunco bacteridiano (ántrax), rabia, encefalopatía espongiforme bovina (EEB) y la presencia de garrapata. Ante la duda de si una enfermedad es notificable, avise igual: el MGAP orienta y evalúa."
+    }
+  ],
+  "fuente": "MGAP — Dirección General de Servicios Ganaderos (DGSG)",
+  "enlaceOficial": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/politicas-y-gestion/sanidad-animal",
+  "relacionados": ["sospecha-y-medidas-inmediatas", "fiebre-aftosa", "carbunco-bacteridiano"]
+}

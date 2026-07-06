@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const { loadConfig } = require('./config');
 const { createLogger } = require('./logger');
-const { loadCatalog } = require('./catalog');
+const { loadBots } = require('./bots');
 const { createApp } = require('./app');
 
 // Bootstrap del servicio con apagado graceful (RNF-05).
@@ -20,18 +20,24 @@ function main() {
 
   const logger = createLogger(config);
 
-  let catalog;
+  let bots;
   try {
-    catalog = loadCatalog();
+    bots = loadBots();
   } catch (err) {
-    logger.fatal({ err: err.message }, 'no se pudo cargar el catálogo de trámites');
+    logger.fatal({ err: err.message }, 'no se pudieron cargar los bots');
     process.exit(1);
   }
 
-  const app = createApp({ config, logger, catalog });
+  const app = createApp({ config, logger, bots });
+  const totalDocs = bots.reduce((sum, b) => sum + b.documents.length, 0);
   const server = app.listen(config.port, () => {
     logger.info(
-      { port: config.port, tramites: catalog.length, mode: config.openaiApiKey ? 'ai' : 'catalog' },
+      {
+        port: config.port,
+        bots: bots.map((b) => b.id),
+        documentos: totalDocs,
+        mode: config.openaiApiKey ? 'ai' : 'catalog',
+      },
       'servicio iniciado'
     );
   });
@@ -42,7 +48,6 @@ function main() {
       logger.info('conexiones cerradas, saliendo');
       process.exit(0);
     });
-    // Si las conexiones no drenan a tiempo, salir igual.
     setTimeout(() => {
       logger.warn('timeout de apagado, salida forzada');
       process.exit(1);

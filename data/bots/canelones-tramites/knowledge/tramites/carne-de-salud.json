@@ -1,0 +1,31 @@
+{
+  "id": "carne-de-salud",
+  "titulo": "Carné de salud básico",
+  "coleccion": "tramites",
+  "organismo": "Ministerio de Salud Pública (prestadores habilitados)",
+  "etiquetas": [
+    "carne de salud", "carnet de salud", "certificado de salud", "aptitud",
+    "trabajo", "msp"
+  ],
+  "resumen": "Certificado que acredita aptitud básica de salud, requerido para trabajar y para diversos trámites (habilitaciones, manipulación de alimentos, licencia de conducir). Se expide en prestadores de salud habilitados por el MSP.",
+  "secciones": [
+    {
+      "titulo": "Requisitos y documentación",
+      "contenido": "Cédula de identidad vigente; agendarse en un prestador habilitado (mutualista, ASSE o clínica autorizada); carné de salud anterior si es una renovación; y carné de vacunas (se controla la vigencia de la antitetánica)."
+    },
+    {
+      "titulo": "Pasos a seguir",
+      "contenido": "1) Agendar hora en un prestador habilitado por el MSP. 2) Concurrir en ayunas si el prestador lo indica. 3) Realizarse los controles (vista, presión, odontológico, análisis según corresponda). 4) Retirar el carné emitido."
+    },
+    {
+      "titulo": "Costo y plazos",
+      "contenido": "Costo: varía según el prestador; en ASSE es gratuito para usuarios del sistema público. Plazo: entrega en el día o dentro de la semana según el prestador."
+    },
+    {
+      "titulo": "Observaciones",
+      "contenido": "Vigencia general de 2 años (puede variar según edad y condición). Para manipulación de alimentos se requiere además el carné de manipulador."
+    }
+  ],
+  "fuente": "Ministerio de Salud Pública",
+  "enlaceOficial": "https://www.gub.uy/tramites/carne-salud-basico"
+}

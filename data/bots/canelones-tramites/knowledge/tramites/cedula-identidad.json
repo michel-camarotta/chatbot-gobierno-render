@@ -1,0 +1,31 @@
+{
+  "id": "cedula-identidad",
+  "titulo": "Cédula de identidad (obtención y renovación)",
+  "coleccion": "tramites",
+  "organismo": "Dirección Nacional de Identificación Civil (Ministerio del Interior)",
+  "etiquetas": [
+    "cedula", "cedula de identidad", "documento", "identificacion", "renovar cedula",
+    "sacar cedula", "dnic", "ci"
+  ],
+  "resumen": "Documento de identificación obligatorio para todas las personas que residen en Uruguay. Se tramita ante la Dirección Nacional de Identificación Civil (DNIC) con agenda previa.",
+  "secciones": [
+    {
+      "titulo": "Requisitos y documentación",
+      "contenido": "Agendarse previamente en línea. Para primera vez: partida de nacimiento o testimonio de la partida. Para renovación: cédula anterior, aunque esté vencida. En caso de hurto o extravío, constancia de denuncia policial."
+    },
+    {
+      "titulo": "Pasos a seguir",
+      "contenido": "1) Agendar día y hora en el sitio de la DNIC (agenda.minterior.gub.uy). 2) Abonar el timbre correspondiente (en línea o en redes de cobranza). 3) Concurrir a la oficina el día agendado con la documentación. 4) Tomarse la fotografía y registrar firma y huellas. 5) Retirar la cédula en el plazo indicado o recibirla según la modalidad elegida."
+    },
+    {
+      "titulo": "Costo y plazos",
+      "contenido": "Costo: timbre según el tipo de trámite (consultar valores vigentes en la DNIC); es gratuito para personas en situación de vulnerabilidad acreditada por MIDES. Plazo: la entrega es en general dentro de los 10 días hábiles."
+    },
+    {
+      "titulo": "Observaciones",
+      "contenido": "La renovación puede iniciarse hasta 6 meses antes del vencimiento. Existen móviles de la DNIC que recorren localidades del interior."
+    }
+  ],
+  "fuente": "Dirección Nacional de Identificación Civil (DNIC)",
+  "enlaceOficial": "https://www.gub.uy/tramites/cedula-identidad"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "tuberculosis-bovina",
+  "titulo": "Tuberculosis bovina",
+  "coleccion": "enfermedades",
+  "organismo": "MGAP — DGSG",
+  "etiquetas": [
+    "tuberculosis", "tbc", "mycobacterium bovis", "tuberculina", "zoonosis",
+    "lecheria", "saneamiento", "denuncia obligatoria", "prueba de tuberculina"
+  ],
+  "resumen": "Enfermedad bacteriana crónica (Mycobacterium bovis) que afecta principalmente al ganado bovino, con mayor impacto en la lechería. Es una zoonosis y de denuncia obligatoria, sujeta a un programa oficial de control basado en la prueba de tuberculina.",
+  "secciones": [
+    {
+      "titulo": "Qué es y cómo se transmite",
+      "contenido": "Causada por Mycobacterium bovis, es una enfermedad de evolución lenta. Se transmite sobre todo por vía respiratoria entre animales en contacto estrecho, y por el consumo de leche de vacas infectadas (importante en terneros). Es más frecuente en sistemas lecheros con animales estabulados o de alta concentración."
+    },
+    {
+      "titulo": "Signos clínicos",
+      "contenido": "Suele ser de curso crónico y muchos animales no muestran signos evidentes por largo tiempo. Cuando aparecen, incluyen adelgazamiento progresivo pese a buena alimentación, tos crónica, debilidad y baja producción. Por su carácter silencioso, el diagnóstico se apoya en pruebas y no solo en la observación."
+    },
+    {
+      "titulo": "Riesgo para las personas (zoonosis)",
+      "contenido": "Puede transmitirse a las personas, principalmente por el consumo de leche cruda de animales infectados o por contacto en la manipulación. La pasteurización de la leche y el control sanitario del rodeo son las principales barreras."
+    },
+    {
+      "titulo": "Diagnóstico, control y denuncia",
+      "contenido": "El diagnóstico oficial se realiza con la prueba de tuberculina (intradermorreacción) aplicada por veterinario acreditado. Es de denuncia obligatoria. El programa oficial de control incluye el saneamiento de predios positivos, la eliminación de animales reactivos y el control de movimientos hacia y desde establecimientos en saneamiento."
+    }
+  ],
+  "fuente": "MGAP — Programa Nacional de Control de Tuberculosis (DGSG)",
+  "enlaceOficial": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/politicas-y-gestion/tuberculosis",
+  "relacionados": ["denuncia-obligatoria", "programa-brucelosis-tuberculosis"]
+}

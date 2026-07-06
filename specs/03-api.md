@@ -3,6 +3,11 @@
 Especificación formal en [openapi.yaml](openapi.yaml). Este documento resume el
 contrato y sus reglas transversales.
 
+> La plataforma es **multi-bot** (ver [07](07-plataforma-multibot-agentes.md)). El
+> endpoint canónico de chat es `POST /api/v1/bots/:botId/chat`; `POST /api/v1/chat`
+> es un atajo al bot por defecto y conserva el contrato descrito abajo. La consulta
+> del catálogo se hace por bot en `GET /api/v1/bots/:botId/documents`.
+
 ## Reglas generales
 
 - Base path versionado: `/api/v1`. Cambios incompatibles ⇒ nueva versión de path.
@@ -44,23 +49,27 @@ Response `200`:
 ```json
 {
   "reply": "Para la habilitación comercial tipo B en Canelones necesitás…",
-  "sources": [ { "id": "habilitacion-comercial-tipo-b-canelones", "nombre": "Habilitación comercial Tipo B (Canelones)" } ],
+  "bot": "canelones-tramites",
+  "agentes": [ { "id": "tramites", "nombre": "Trámites y servicios" } ],
+  "sources": [ { "id": "habilitacion-comercial-tipo-b", "nombre": "Habilitación comercial Tipo B (Canelones)", "seccion": "Requisitos", "organismo": "Intendencia de Canelones" } ],
   "mode": "ai"
 }
 ```
 
-- `mode`: `"ai"` (respuesta generada por el modelo) o `"catalog"` (modo degradado, RF-03).
+- `mode`: `"ai"` (respuesta generada por el modelo sobre el contexto recuperado) o
+  `"catalog"` (modo degradado extractivo, RF-03/RF-11).
+- `agentes`: agentes especialistas consultados (RF-09). `sources`: documentos citados (RF-10).
 
-### GET /api/v1/tramites  (RF-04)
+### GET /api/v1/bots/:botId/documents  (RF-04, RF-08)
 
 Query `q` opcional (filtro de texto). Response `200`:
 ```json
-{ "tramites": [ { "id": "…", "nombre": "…", "descripcion": "…", "categoria": "…", "modalidad": "…" } ] }
+{ "documents": [ { "id": "…", "titulo": "…", "coleccion": "…", "resumen": "…", "etiquetas": ["…"] } ] }
 ```
 
-### GET /api/v1/tramites/:id  (RF-04)
+### GET /api/v1/bots/:botId/documents/:docId  (RF-04, RF-08)
 
-Ficha completa del trámite o `404`.
+Documento completo o `404`.
 
 ### POST /api/v1/feedback  (RF-05)
 

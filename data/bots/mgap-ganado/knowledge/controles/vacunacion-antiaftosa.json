@@ -1,0 +1,32 @@
+{
+  "id": "vacunacion-antiaftosa",
+  "titulo": "Vacunación antiaftosa obligatoria",
+  "coleccion": "controles",
+  "organismo": "MGAP — DGSG",
+  "etiquetas": [
+    "vacunacion antiaftosa", "vacuna aftosa", "campaña", "periodo de vacunacion",
+    "obligatoria", "bovinos", "declaracion de vacunacion", "calendario", "cuando vacuno"
+  ],
+  "resumen": "La vacunación antiaftosa del ganado bovino es obligatoria en Uruguay y se realiza en los períodos (campañas) que fija el MGAP cada año. Sostiene el estatus de país libre de fiebre aftosa con vacunación.",
+  "secciones": [
+    {
+      "titulo": "Quiénes deben vacunar y por qué",
+      "contenido": "Todos los productores con ganado bovino deben vacunar contra la fiebre aftosa en los períodos oficiales. La vacunación masiva y sincronizada mantiene inmunizado al rodeo nacional y protege el estatus sanitario que habilita la exportación de carne. No vacunar es una infracción y pone en riesgo a todo el sector."
+    },
+    {
+      "titulo": "Cuándo se vacuna",
+      "contenido": "El MGAP define cada año los períodos de vacunación (habitualmente campañas concentradas en determinados meses, que pueden abarcar a todo el rodeo o a categorías específicas como los terneros). Las fechas exactas se publican oficialmente antes de cada campaña. Consulte el calendario vigente en el MGAP o en su oficina zonal antes de cada período."
+    },
+    {
+      "titulo": "Cómo se registra",
+      "contenido": "Luego de vacunar, el productor debe declarar la vacunación ante el MGAP dentro de los plazos establecidos, informando las categorías y cantidades vacunadas. Esta declaración es la constancia oficial del cumplimiento y suele ser requisito para habilitar movimientos de animales."
+    },
+    {
+      "titulo": "Buenas prácticas de aplicación",
+      "contenido": "Conserve la vacuna en cadena de frío (refrigerada, sin congelar), aplíquela por la vía y dosis indicadas, use agujas en buen estado y registre lote y fecha. Una vacuna mal conservada o mal aplicada puede no proteger. Ante dudas, coordine con su veterinario."
+    }
+  ],
+  "fuente": "MGAP — División Sanidad Animal (DGSG)",
+  "enlaceOficial": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/politicas-y-gestion/fiebre-aftosa",
+  "relacionados": ["fiebre-aftosa", "guia-de-transito"]
+}

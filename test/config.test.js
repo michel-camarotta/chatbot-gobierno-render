@@ -13,7 +13,8 @@ describe('configuración (RNF-04)', () => {
     assert.equal(config.openaiApiKey, null);
     assert.equal(config.trustProxy, false);
     assert.deepEqual(config.corsOrigins, []);
-    assert.equal(config.retrievalTopK, 3);
+    assert.equal(config.retrievalTopK, 4);
+    assert.equal(config.defaultBot, 'canelones-tramites');
     assert.equal(config.rateLimitChatMax, 20);
   });
 

@@ -1,0 +1,31 @@
+{
+  "id": "partida-de-nacimiento",
+  "titulo": "Partida de nacimiento (testimonio)",
+  "coleccion": "tramites",
+  "organismo": "Dirección General del Registro de Estado Civil (MEC)",
+  "etiquetas": [
+    "partida", "partida de nacimiento", "registro civil", "testimonio",
+    "acta de nacimiento", "nacimiento"
+  ],
+  "resumen": "Solicitud de testimonio de partida de nacimiento ante la Dirección General del Registro de Estado Civil. Necesaria para tramitar la cédula por primera vez, matrimonios, jubilaciones y otros trámites.",
+  "secciones": [
+    {
+      "titulo": "Requisitos y documentación",
+      "contenido": "Conocer los datos de la persona inscripta (nombre, fecha y lugar de nacimiento); usuario gub.uy (ID Uruguay) para la solicitud en línea; y cédula de identidad del solicitante."
+    },
+    {
+      "titulo": "Pasos a seguir",
+      "contenido": "1) Ingresar al trámite en línea en gub.uy. 2) Completar los datos de la partida solicitada. 3) Abonar el timbre en línea. 4) Recibir el testimonio con firma electrónica por correo o retirarlo según la opción elegida."
+    },
+    {
+      "titulo": "Costo y plazos",
+      "contenido": "Costo: timbre del Registro de Estado Civil (consultar valor vigente). Plazo: partidas digitalizadas, emisión en línea inmediata o dentro de las 72 horas."
+    },
+    {
+      "titulo": "Observaciones",
+      "contenido": "Partidas anteriores a la digitalización pueden requerir búsqueda manual y demorar más. El testimonio con firma electrónica tiene la misma validez que el papel."
+    }
+  ],
+  "fuente": "Dirección General del Registro de Estado Civil",
+  "enlaceOficial": "https://www.gub.uy/tramites/testimonio-partida-nacimiento"
+}

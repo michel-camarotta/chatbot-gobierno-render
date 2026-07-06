@@ -1,0 +1,28 @@
+{
+  "id": "sospecha-y-medidas-inmediatas",
+  "titulo": "Qué hacer ante una sospecha: medidas inmediatas en el predio",
+  "coleccion": "protocolos",
+  "organismo": "MGAP — DGSG",
+  "etiquetas": [
+    "sospecha", "que hago", "medidas inmediatas", "cuarentena", "no mover animales",
+    "aislar", "brote", "foco", "mortandad", "emergencia sanitaria", "bioseguridad"
+  ],
+  "resumen": "Ante la sospecha de una enfermedad de denuncia obligatoria o una mortandad inusual, hay medidas inmediatas que el productor debe tomar en el predio mientras avisa al MGAP, para no diseminar la enfermedad.",
+  "secciones": [
+    {
+      "titulo": "Primeras acciones",
+      "contenido": "1) Avise de inmediato al MGAP o a su veterinario. 2) No mueva animales: suspenda todo ingreso y egreso de animales del establecimiento. 3) Separe y aísle los animales enfermos del resto del rodeo. 4) Restrinja el movimiento de personas y vehículos y evite visitas a otros establecimientos hasta recibir indicaciones."
+    },
+    {
+      "titulo": "Qué NO hacer",
+      "contenido": "No faene ni consuma animales enfermos. No entierre ni queme cadáveres por cuenta propia sin autorización oficial. En caso de muerte súbita con sospecha de carbunco, NO abra ni realice necropsia del cadáver. No medique masivamente antes de la evaluación oficial, porque puede enmascarar el diagnóstico."
+    },
+    {
+      "titulo": "Bioseguridad mientras llega la respuesta",
+      "contenido": "Use ropa y calzado que pueda higienizarse, limpie y desinfecte botas y herramientas, y evite compartir equipos con otros predios. Registre qué animales están afectados y los movimientos recientes. Mantenga el acceso a agua y sombra para el resto del rodeo. Espere las indicaciones del veterinario oficial, que definirá muestreos, cuarentena y medidas."
+    }
+  ],
+  "fuente": "MGAP — División Sanidad Animal (DGSG)",
+  "enlaceOficial": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/politicas-y-gestion/sanidad-animal",
+  "relacionados": ["denuncia-obligatoria", "fiebre-aftosa", "carbunco-bacteridiano"]
+}
