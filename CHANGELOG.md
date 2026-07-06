@@ -22,8 +22,9 @@ spec-driven development (especificaciones en `specs/`).
   dependencias ni CDNs, con indicador de escritura, reintento ante errores, fuentes
   de cada respuesta, feedback y aviso legal.
 - Seguridad: helmet con CSP, rate limiting por IP, CORS cerrado por defecto,
-  validación estricta de entrada, límite de payload 32 kb, request IDs, errores con
-  formato uniforme sin fuga de detalles.
+  validación estricta de entrada, límite de payload configurable (`BODY_LIMIT_KB`,
+  defecto 64 kb, dimensionado para el historial máximo válido), request IDs, errores
+  con formato uniforme sin fuga de detalles.
 - Observabilidad: logs estructurados JSON (pino) sin contenido de mensajes en nivel
   info, healthchecks de liveness/readiness.
 - 46 pruebas automatizadas (`node:test`) que corren sin red ni claves; CI en GitHub

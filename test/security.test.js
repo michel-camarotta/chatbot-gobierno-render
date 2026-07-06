@@ -19,15 +19,31 @@ describe('seguridad (RNF-02)', () => {
     }
   });
 
-  test('rechaza payloads de más de 32 kb con 413 (SEG-01)', async () => {
+  test('rechaza payloads que superan el límite del cuerpo con 413 (SEG-01)', async () => {
     const app = await startApp();
     try {
       const res = await postJson(`${app.baseUrl}/api/v1/chat`, {
         message: 'hola',
-        relleno: 'x'.repeat(40000),
+        relleno: 'x'.repeat(70000),
       });
       assert.equal(res.status, 413);
       assert.equal(res.json.error.code, 'PAYLOAD_TOO_LARGE');
+    } finally {
+      await app.close();
+    }
+  });
+
+  test('acepta un historial válido en su tamaño máximo sin 413', async () => {
+    // 20 turnos de 2000 caracteres es un history válido según el contrato; el
+    // límite del cuerpo debe acomodarlo (regresión del 413 con conversación larga).
+    const app = await startApp();
+    try {
+      const history = Array.from({ length: 20 }, (_, i) => ({
+        role: i % 2 === 0 ? 'user' : 'assistant',
+        content: 'x'.repeat(2000),
+      }));
+      const res = await postJson(`${app.baseUrl}/api/v1/chat`, { message: 'hola', history });
+      assert.equal(res.status, 200);
     } finally {
       await app.close();
     }

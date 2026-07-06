@@ -20,7 +20,24 @@
   var title = script.getAttribute('data-title') || 'Asistente Ciudadano';
 
   var HISTORY_MAX = 20;
+  // Presupuesto de caracteres del historial enviado: mantiene el cuerpo bien por
+  // debajo del límite del servidor aunque haya turnos largos (evita el 413).
+  var HISTORY_CHAR_BUDGET = 12000;
   var STORAGE_KEY = 'ac-conversacion';
+
+  // Recorta el historial a los turnos más recientes que entran en el presupuesto
+  // de caracteres, sin superar HISTORY_MAX turnos.
+  function boundedHistory() {
+    var out = [];
+    var total = 0;
+    for (var i = history.length - 1; i >= 0 && out.length < HISTORY_MAX; i--) {
+      var len = (history[i].content || '').length;
+      if (total + len > HISTORY_CHAR_BUDGET && out.length > 0) break;
+      out.unshift(history[i]);
+      total += len;
+    }
+    return out;
+  }
 
   // La hoja de estilos vive junto al script; se inyecta como <link> para
   // que la integración sea un único <script> y siga cumpliendo CSP.
@@ -239,7 +256,7 @@
     fetch(apiBase + '/api/v1/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: message, history: history.slice(-HISTORY_MAX) }),
+      body: JSON.stringify({ message: message, history: boundedHistory() }),
     })
       .then(function (res) {
         return res.json().then(function (data) {

@@ -57,7 +57,7 @@ function createApp(options = {}) {
     app.use(cors({ origin: config.corsOrigins, methods: ['GET', 'POST'] }));
   }
 
-  app.use(express.json({ limit: '32kb' }));
+  app.use(express.json({ limit: `${config.bodyLimitKb}kb` }));
   app.use(requestId(logger));
 
   const rateLimited = (max) =>

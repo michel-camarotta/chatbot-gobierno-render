@@ -29,10 +29,17 @@ function createFeedbackRouter() {
       return;
     }
 
+    // SEG-05: en info solo metadatos, nunca el texto aportado por la ciudadanía
+    // (puede contener datos personales). El contenido va a debug, apagado en producción.
     req.log.info(
-      { event: 'feedback', helpful: body.helpful, comment: body.comment || null },
+      {
+        event: 'feedback',
+        helpful: body.helpful,
+        commentLength: typeof body.comment === 'string' ? body.comment.length : 0,
+      },
       'feedback recibido'
     );
+    if (body.comment) req.log.debug({ event: 'feedback', comment: body.comment }, 'comentario de feedback');
     res.status(204).end();
   });
 

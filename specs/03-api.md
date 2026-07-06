@@ -18,7 +18,7 @@ contrato y sus reglas transversales.
 |---|---|---|
 | 400 | `VALIDATION_ERROR` | Entrada inválida |
 | 404 | `NOT_FOUND` | Recurso inexistente |
-| 413 | `PAYLOAD_TOO_LARGE` | Body > 32 kb |
+| 413 | `PAYLOAD_TOO_LARGE` | Body mayor al límite (`BODY_LIMIT_KB`, defecto 64 kb) |
 | 429 | `RATE_LIMITED` | Límite de solicitudes excedido |
 | 500 | `INTERNAL_ERROR` | Error no controlado (sin detalles internos) |
 

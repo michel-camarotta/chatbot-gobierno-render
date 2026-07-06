@@ -17,8 +17,10 @@ ASVS nivel 1 como piso técnico.
 ## Controles
 
 ### SEG-01 — Validación estricta de entrada
-Todo input se valida por tipo, longitud y forma antes de procesarse (RF-01). Body
-limitado a 32 kb. Sin `eval`, sin construcción dinámica de consultas.
+Todo input se valida por tipo, longitud y forma antes de procesarse (RF-01). El
+cuerpo se limita por `BODY_LIMIT_KB` (defecto 64 kb), dimensionado para acomodar el
+historial máximo válido (20 turnos × 2000 caracteres) sin producir `413`. Sin `eval`,
+sin construcción dinámica de consultas.
 
 ### SEG-02 — Rate limiting
 Límite por IP en endpoints de chat (defecto 20 req/min) y generales (100 req/min),
@@ -38,8 +40,10 @@ solo habla con este backend.
 
 ### SEG-05 — Logs sin datos personales
 Los logs de nivel `info` registran metadatos (request ID, ruta, latencia, modo,
-cantidad de fuentes) pero **no** el contenido de los mensajes del ciudadano. El
-contenido solo puede aparecer en nivel `debug`, desactivado en producción.
+cantidad de fuentes, longitud del mensaje o comentario) pero **no** el contenido de
+los mensajes ni de los comentarios de feedback del ciudadano —que pueden incluir datos
+personales—. Ese contenido solo puede aparecer en nivel `debug`, desactivado en
+producción.
 
 ### SEG-06 — Mitigación de inyección de prompt y alucinaciones
 El prompt de sistema restringe al modelo a la información del catálogo recuperada,

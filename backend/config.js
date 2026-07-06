@@ -59,6 +59,10 @@ function loadConfig(env = process.env) {
 
     retrievalTopK: parseIntStrict(env, 'RETRIEVAL_TOP_K', 3, { min: 1, max: 10 }),
 
+    // Límite del cuerpo de la solicitud (SEG-01). El default acomoda el history
+    // máximo válido (20 turnos × 2000 caracteres + mensaje + overhead JSON).
+    bodyLimitKb: parseIntStrict(env, 'BODY_LIMIT_KB', 64, { min: 16, max: 512 }),
+
     rateLimitWindowMs: parseIntStrict(env, 'RATE_LIMIT_WINDOW_MS', 60000, { min: 1000 }),
     rateLimitChatMax: parseIntStrict(env, 'RATE_LIMIT_CHAT_MAX', 20),
     rateLimitApiMax: parseIntStrict(env, 'RATE_LIMIT_API_MAX', 100),
