@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node backend/server.js",
     "dev": "node --watch backend/server.js",
-    "test": "node --test \"test/*.test.js\"",
+    "test": "node --test",
     "validate:catalog": "node scripts/validate-catalog.js"
   },
   "dependencies": {
